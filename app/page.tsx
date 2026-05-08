@@ -65,6 +65,13 @@ const REVIEWS = [
 
 const AREAS = ["Davenport","Kissimmee","ChampionsGate","Reunion","Celebration","Orlando","Clermont","Winter Garden","Dr. Phillips","Haines City"];
 
+type ContactForm = {
+  name: string;
+  phone: string;
+  service: string;
+  message: string;
+};
+
 const WHY = [
   { icon: "🛠️", t: "Real technical background", d: "Electrical work plus networking, systems and IT experience in one provider." },
   { icon: "✨", t: "Clean installations", d: "Organized setups, no exposed cables, clear communication throughout the job." },
@@ -74,7 +81,7 @@ const WHY = [
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "", service: "Security cameras", message: "" });
+  const [form, setForm] = useState<ContactForm>({ name: "", phone: "", service: "Security cameras", message: "" });
 
   const handleSend = () => {
     if (!form.name || !form.phone) return;
@@ -83,7 +90,7 @@ export default function App() {
     setSent(true);
   };
 
-  const scrollTo = (id) => {
+  const scrollTo = (id: string) => {
     document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
   };
@@ -115,7 +122,7 @@ export default function App() {
               ✅ Serving Central Florida
             </div>
             <h1 style={{ fontSize: 42, fontWeight: 800, lineHeight: 1.15, margin: "0 0 20px", letterSpacing: "-1px" }}>
-              Electrical, Networking, WiFi,Cameras & Smart Home Solutions.
+              Electrical, Networking, WiFi, Cameras & Smart Home Solutions.
             </h1>
             <p style={{ fontSize: 17, color: "#475569", lineHeight: 1.7, margin: "0 0 32px" }}>
               Clean, practical technology services for homes, rentals and small businesses in Davenport, Kissimmee, Orlando and surrounding areas.
@@ -131,7 +138,7 @@ export default function App() {
               </a>
             </div>
             <div style={{ display: "flex", gap: 24, marginTop: 28, flexWrap: "wrap" }}>
-              {["Clean work", "Fast response"].map(t => (
+              {["Clean work", "Reliable communication"].map(t => (
                 <span key={t} style={{ fontSize: 13, color: "#64748b", display: "flex", alignItems: "center", gap: 6 }}>
                   <span style={{ color: "#2563eb" }}>✓</span> {t}
                 </span>
@@ -152,14 +159,28 @@ export default function App() {
               </div>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-                {[["Name", "name", "text", "Your name"], ["Phone", "phone", "tel", "(407) 555-0000"]].map(([lbl, key, type, ph]) => (
-                  <div key={key}>
-                    <label style={{ fontSize: 13, fontWeight: 600, color: "#374151", display: "block", marginBottom: 4 }}>{lbl}</label>
-                    <input type={type} placeholder={ph} value={form[key]}
-                      onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
-                      style={{ width: "100%", padding: "10px 14px", borderRadius: 10, border: "1.5px solid #e2e8f0", fontSize: 14, boxSizing: "border-box", outline: "none" }} />
-                  </div>
-                ))}
+                <div>
+                  <label style={{ fontSize: 13, fontWeight: 600, color: "#374151", display: "block", marginBottom: 4 }}>Name</label>
+                  <input
+                    type="text"
+                    placeholder="Your name"
+                    value={form.name}
+                    onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                    style={{ width: "100%", padding: "10px 14px", borderRadius: 10, border: "1.5px solid #e2e8f0", fontSize: 14, boxSizing: "border-box", outline: "none" }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ fontSize: 13, fontWeight: 600, color: "#374151", display: "block", marginBottom: 4 }}>Phone</label>
+                  <input
+                    type="tel"
+                    placeholder="(407) 555-0000"
+                    value={form.phone}
+                    onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
+                    style={{ width: "100%", padding: "10px 14px", borderRadius: 10, border: "1.5px solid #e2e8f0", fontSize: 14, boxSizing: "border-box", outline: "none" }}
+                  />
+                </div>
+
                 <div>
                   <label style={{ fontSize: 13, fontWeight: 600, color: "#374151", display: "block", marginBottom: 4 }}>Service needed</label>
                   <select value={form.service} onChange={e => setForm(f => ({ ...f, service: e.target.value }))}
