@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://mightytechfl.com";
+const SITE_URL = "https://www.mightytechfl.com";
 
 const SITE_TITLE =
   "Commercial Networking & Technology Services | Mighty Tech Solutions";

@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://mightytechfl.com/sitemap.xml",
+    sitemap: "https://www.mightytechfl.com/sitemap.xml",
   };
 }
