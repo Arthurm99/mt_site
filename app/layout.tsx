@@ -48,6 +48,10 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
   },
 
+  verification: {
+    google: "mIWKEU7jSurYuXGCP1ZPzl8mQNNOj_NAvdiT9-BIct0",
+  },
+
   robots: {
     index: true,
     follow: true,
