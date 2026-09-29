@@ -38,6 +38,7 @@ const COMMERCIAL_SERVICE_GROUPS = [
   {
     icon: "🔌",
     title: "Structured Cabling & Network Infrastructure",
+    href: "/network-cabling-structured-cabling",
     summary:
       "Clean, organized network infrastructure for new installations, expansions and existing systems.",
     items: [
