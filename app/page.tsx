@@ -56,6 +56,7 @@ const COMMERCIAL_SERVICE_GROUPS = [
   {
     icon: "📷",
     title: "Security Cameras & Video Surveillance",
+    href: "/security-camera-installation",
     summary:
       "Camera systems for better visibility, monitoring and day-to-day property awareness.",
     items: [
@@ -1392,6 +1393,23 @@ export default function App() {
                     <span>{item}</span>
                   </button>
                 ))}
+
+                {group.href && (
+                  <a
+                    href={group.href}
+                    style={{
+                      display: "inline-block",
+                      marginTop: 14,
+                      padding: "8px 7px",
+                      color: "#2563eb",
+                      fontSize: 14,
+                      fontWeight: 750,
+                      textDecoration: "none",
+                    }}
+                  >
+                    View {group.title} →
+                  </a>
+                )}
               </div>
             </div>
           ))}
