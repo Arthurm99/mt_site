@@ -6,6 +6,8 @@ const PHONE = "6892728874";
 const WA_URL = `https://wa.me/1${PHONE}`;
 const SMS_URL = `sms:+1${PHONE}`;
 const EMAIL = "mightytechsolutionsllc@gmail.com";
+const GOOGLE_REVIEW_COUNT = 20;
+const GOOGLE_RATING = 5.0;
 
 const NAV = [
   { label: "Commercial Services", id: "commercial-services" },
@@ -20,12 +22,10 @@ const COMMERCIAL_SERVICE_GROUPS = [
     icon: "🌐",
     title: "Business Networking & WiFi",
     summary:
-      "Reliable wired and wireless connectivity for offices, stores and small commercial spaces.",
+      "Reliable WiFi and active network connectivity for offices, stores and small commercial spaces.",
     items: [
-      "Business Network Installation",
-      "Small Business Network Setup",
-      "Office Network Installation",
       "Business WiFi Installation",
+      "WiFi Installation",
       "Wireless Access Point Installation",
       "Router Installation & Configuration",
       "Network Switch Installation",
@@ -111,23 +111,24 @@ const COMMERCIAL_SERVICE_GROUPS = [
     ],
   },
   {
-    icon: "🛠️",
-    title: "Business Technology Support",
-    summary:
-      "Practical troubleshooting, configuration and cleanup when your technology is not working the way it should.",
-    items: [
-      "Technology Troubleshooting",
-      "Network Troubleshooting",
-      "WiFi Troubleshooting",
-      "Device Setup & Configuration",
-      "Network Equipment Replacement",
-      "Technology Audit",
-      "Network Cleanup",
-      "Equipment Reorganization",
-      "System Expansion",
-      "New Office Technology Setup",
-    ],
-  },
+  icon: "🛠️",
+  title: "Small Business IT Support",
+  summary:
+    "Practical on-site IT support, troubleshooting, configuration and technology cleanup for small businesses.",
+  items: [
+    "Small Business IT Support",
+    "On-Site IT Support",
+    "IT Troubleshooting",
+    "Network Troubleshooting",
+    "WiFi Troubleshooting",
+    "Device Setup & Configuration",
+    "Network Equipment Replacement",
+    "Technology Audit",
+    "Network Cleanup",
+    "Equipment Reorganization",
+    "New Office Technology Setup",
+  ],
+},
 ];
 
 const RESIDENTIAL_SERVICE_GROUPS = [
@@ -256,22 +257,6 @@ const WHY = [
 
 const REVIEWS = [
   {
-    name: "Keith Banda",
-    text: "Great experience with Mighty Tech Solutions. They installed two Google Nest Floodlight Cameras. The work was professional, everything was tested and working properly, and communication was clear throughout the process. Highly recommended for any of your smart home needs! Very affordable in addition.",
-  },
-  {
-    name: "Edgardo Medina",
-    text: "Arturo from Mighty Tech Solutions installed a Ring Doorbell, 2 exterior security cameras, and door sensors for our front and back doors.",
-  },
-  {
-    name: "Eliana Iglesias",
-    text: "Excellent service! I needed some electrical troubleshooting at home and they responded immediately. The technician was super professional, neat, and explained everything clearly. It’s hard to find reliable electricians, but Mighty Tech Solutions is definitely my new go-to. Highly recommend them!",
-  },
-  {
-    name: "Lenna Cordido",
-    text: "Arturo installed a very solid mesh system in my home to reinforce the Wi-Fi signal strength, installed a camera in my garage and connected it to Alexa so I can easily view it, replaced my broken doorbell, and also checked an exterior outlet.",
-  },
-  {
     name: "Mighty Engines LLC",
     text: "Mighty Tech Solutions did a great job installing 4 exterior security cameras and a smart lock for our business.",
   },
@@ -280,16 +265,28 @@ const REVIEWS = [
     text: "Excellent service! Really quality. Arturo installed 4 floodlight cameras and an access control system for our business.",
   },
   {
+    name: "Michelle Ingeme",
+    text: "I highly recommend Mighty Techs! They installed our Google Home system, Nest thermostat, security camera, and mesh Wi-Fi network, and the entire experience was excellent from start to finish.",
+  },
+  {
+    name: "Lenna Cordido",
+    text: "Arturo installed a very solid mesh system in my home to reinforce the Wi-Fi signal strength, installed a camera in my garage and connected it to Alexa so I can easily view it, replaced my broken doorbell, and also checked an exterior outlet.",
+  },
+  {
+    name: "Gary Taylor",
+    text: "We were having a recurring problem with a smart lock in our Airbnb. Arturo was very knowledgeable and identified the problem and fixed it quickly. Highly recommend!!",
+  },
+  {
+    name: "Keith Banda",
+    text: "Great experience with Mighty Tech Solutions. They installed two Google Nest Floodlight Cameras. The work was professional, everything was tested and working properly, and communication was clear throughout the process. Highly recommended for any of your smart home needs! Very affordable in addition.",
+  },
+  {
     name: "Alex Bui",
     text: "Arturo runs a great business. He promptly answered my questions and was able to get me quotes same day. I was on a tight timeline and he ensured me we were going to complete it. Everything was done smoothly and professionally.",
   },
   {
     name: "Fabiola Galeano",
     text: "Mighty Tech Solutions helped me with my security cameras. Now I can monitor my home remotely from anywhere. I truly recommend them! ✅",
-  },
-  {
-    name: "Michelle Ingeme",
-    text: "I highly recommend Mighty Techs! They installed our Google Home system, Nest thermostat, security camera, and mesh Wi-Fi network, and the entire experience was excellent from start to finish.",
   },
   {
     name: "Victor Blanco",
@@ -304,12 +301,16 @@ const REVIEWS = [
     text: "Mighty Tech Solutions helped set up our smart access control system, I'm really happy with the service and highly recommend.",
   },
   {
+    name: "Edgardo Medina",
+    text: "Arturo from Mighty Tech Solutions installed a Ring Doorbell, 2 exterior security cameras, and door sensors for our front and back doors.",
+  },
+  {
     name: "Juan Oropeza",
     text: "Very happy with the installation of security cameras and a doorbell at home, thanks",
   },
   {
-    name: "Gary Taylor",
-    text: "We were having a recurring problem with a smart lock in our Airbnb. Arturo was very knowledgeable and identified the problem and fixed it quickly. Highly recommend!!",
+    name: "Eliana Iglesias",
+    text: "Excellent service! I needed some electrical troubleshooting at home and they responded immediately. The technician was super professional, neat, and explained everything clearly. It’s hard to find reliable electricians, but Mighty Tech Solutions is definitely my new go-to. Highly recommend them!",
   },
   {
     name: "Luisangel Martínez",
@@ -365,8 +366,9 @@ const AREAS = [
   "Kissimmee",
   "Davenport",
   "Clermont",
-  "Winter Garden",
   "Haines City",
+  "Winter Haven",
+  "Winter Garden",
   "ChampionsGate",
   "Celebration",
   "Reunion",
@@ -376,6 +378,7 @@ const AREAS = [
 type ContactForm = {
   name: string;
   phone: string;
+  city: string;
   service: string;
   message: string;
 };
@@ -385,12 +388,13 @@ export default function App() {
   const [sent, setSent] = useState(false);
   const [showAllReviews, setShowAllReviews] = useState(false);
 
-  const [form, setForm] = useState<ContactForm>({
-    name: "",
-    phone: "",
-    service: "Business Network Installation",
-    message: "",
-  });
+const [form, setForm] = useState<ContactForm>({
+  name: "",
+  phone: "",
+  city: "",
+  service: "",
+  message: "",
+});
 
   const visibleReviews = showAllReviews ? REVIEWS : REVIEWS.slice(0, 6);
 
@@ -414,16 +418,18 @@ export default function App() {
     }, 50);
   };
 
-  const handleSend = () => {
-    if (!form.name || !form.phone) return;
+const handleSend = () => {
+  if (!form.name || !form.phone || !form.service) return;
 
-    const msg = encodeURIComponent(
-      `Hi! I'm ${form.name}. I need help with: ${form.service}. ${form.message} My phone: ${form.phone}`
-    );
+  const msg = encodeURIComponent(
+    `Hi! I'm ${form.name}. I need help with: ${form.service}. City: ${
+      form.city || "Not provided"
+    }. ${form.message} My phone: ${form.phone}`
+  );
 
-    window.open(`https://wa.me/1${PHONE}?text=${msg}`, "_blank");
-    setSent(true);
-  };
+  window.open(`https://wa.me/1${PHONE}?text=${msg}`, "_blank");
+  setSent(true);
+};
 
   const toggleReviews = () => {
     if (showAllReviews) {
@@ -879,9 +885,10 @@ export default function App() {
                 maxWidth: 680,
               }}
             >
-              Networking, WiFi, structured cabling, security cameras, access
-              control, gate automation, commercial displays and technology
-              support across Central Florida.
+              Business WiFi, network cabling, structured cabling, security camera
+              installation, small business IT support and commercial AV across
+              Central Florida. We also provide residential WiFi, security, smart
+              home and AV services for homeowners.
             </p>
 
             <div
@@ -970,10 +977,10 @@ export default function App() {
               }}
             >
               {[
-                "15 Google reviews",
-                "5.0 rating",
-                "Commercial & residential",
-              ].map((item) => (
+                  `${GOOGLE_REVIEW_COUNT} Google reviews`,
+                  `${GOOGLE_RATING.toFixed(1)} rating`,
+                  "Commercial & residential",
+                ].map((item) => (
                 <span
                   key={item}
                   style={{
@@ -1105,6 +1112,40 @@ export default function App() {
                       marginBottom: 5,
                     }}
                   >
+                    City
+                  </label>
+
+                  <input
+                    type="text"
+                    placeholder="Orlando, Davenport, Clermont..."
+                    value={form.city}
+                    onChange={(e) =>
+                      setForm((current) => ({
+                        ...current,
+                        city: e.target.value,
+                      }))
+                    }
+                    style={{
+                      width: "100%",
+                      padding: "11px 14px",
+                      borderRadius: 10,
+                      border: "1.5px solid #e2e8f0",
+                      fontSize: 14,
+                      outline: "none",
+                    }}
+                  />
+                </div>
+
+                <div>
+                  <label
+                    style={{
+                      display: "block",
+                      fontSize: 13,
+                      fontWeight: 650,
+                      color: "#374151",
+                      marginBottom: 5,
+                    }}
+                  >
                     Phone
                   </label>
 
@@ -1158,7 +1199,13 @@ export default function App() {
                       fontSize: 14,
                       background: "#ffffff",
                     }}
+                  
                   >
+                   
+                    <option value="" disabled>
+                    Select a service
+                    </option>
+                  
                     {COMMERCIAL_SERVICE_GROUPS.map((group) => (
                       <optgroup key={group.title} label={group.title}>
                         {group.items.map((item) => (
@@ -1414,133 +1461,6 @@ export default function App() {
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* RESIDENTIAL SERVICES */}
-      <section
-        id="residential-services"
-        style={{
-          background: "#f8fafc",
-          padding: "78px 24px",
-          scrollMarginTop: 90,
-        }}
-      >
-        <div style={{ maxWidth: 1120, margin: "0 auto" }}>
-          <div style={{ maxWidth: 760, marginBottom: 42 }}>
-            <div
-              style={{
-                color: "#2563eb",
-                fontSize: 13,
-                fontWeight: 800,
-                textTransform: "uppercase",
-                letterSpacing: "1px",
-                marginBottom: 9,
-              }}
-            >
-              Residential Services
-            </div>
-
-            <h2
-              className="section-title"
-              style={{
-                fontSize: 33,
-                fontWeight: 850,
-                margin: "0 0 11px",
-              }}
-            >
-              Technology services for your home
-            </h2>
-
-            <p
-              style={{
-                color: "#64748b",
-                fontSize: 16,
-                lineHeight: 1.72,
-                margin: 0,
-              }}
-            >
-              Home WiFi, security cameras, video doorbells, smart locks, smart
-              home systems, TV mounting and connected technology.
-            </p>
-          </div>
-
-          <div className="residential-grid">
-            {RESIDENTIAL_SERVICE_GROUPS.map((group) => (
-              <div
-                key={group.title}
-                className="service-card"
-                style={{
-                  background: "#ffffff",
-                  border: "1px solid #e2e8f0",
-                  borderRadius: 17,
-                  padding: 24,
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    gap: 13,
-                    alignItems: "center",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: 45,
-                      height: 45,
-                      borderRadius: 12,
-                      background: "#eff6ff",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: 24,
-                      flexShrink: 0,
-                    }}
-                  >
-                    {group.icon}
-                  </div>
-
-                  <h3
-                    style={{
-                      fontSize: 18,
-                      fontWeight: 800,
-                      margin: 0,
-                    }}
-                  >
-                    {group.title}
-                  </h3>
-                </div>
-
-                <p
-                  style={{
-                    fontSize: 14,
-                    color: "#64748b",
-                    lineHeight: 1.6,
-                  }}
-                >
-                  {group.summary}
-                </p>
-
-                <div
-                  style={{
-                    borderTop: "1px solid #e2e8f0",
-                    paddingTop: 13,
-                  }}
-                >
-                  {group.items.map((item) => (
-                    <button
-                      key={item}
-                      className="service-item"
-                      onClick={() => requestService(item)}
-                    >
-                      <span style={{ color: "#2563eb", fontWeight: 900 }}>✓</span>
-                      <span>{item}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -1946,10 +1866,12 @@ export default function App() {
                 ★★★★★
               </span>
 
-              <span style={{ fontWeight: 800, fontSize: 14 }}>5.0</span>
+              <span style={{ fontWeight: 800, fontSize: 14 }}>
+                {GOOGLE_RATING.toFixed(1)}
+              </span>
 
               <span style={{ color: "#64748b", fontSize: 13 }}>
-                · {REVIEWS.length} reviews
+                · {GOOGLE_REVIEW_COUNT} reviews
               </span>
             </div>
           </div>
@@ -2079,11 +2001,139 @@ export default function App() {
             >
               {showAllReviews
                 ? "Show fewer reviews ↑"
-                : `Show all ${REVIEWS.length} reviews ↓`}
+                : "Show more reviews ↓"}
             </button>
           </div>
         </div>
       </section>
+
+      {/* RESIDENTIAL SERVICES */}
+      <section
+        id="residential-services"
+        style={{
+          background: "#f8fafc",
+          padding: "78px 24px",
+          scrollMarginTop: 90,
+        }}
+      >
+        <div style={{ maxWidth: 1120, margin: "0 auto" }}>
+          <div style={{ maxWidth: 760, marginBottom: 42 }}>
+            <div
+              style={{
+                color: "#2563eb",
+                fontSize: 13,
+                fontWeight: 800,
+                textTransform: "uppercase",
+                letterSpacing: "1px",
+                marginBottom: 9,
+              }}
+            >
+              Residential Services
+            </div>
+
+            <h2
+              className="section-title"
+              style={{
+                fontSize: 33,
+                fontWeight: 850,
+                margin: "0 0 11px",
+              }}
+            >
+              Technology services for your home
+            </h2>
+
+            <p
+              style={{
+                color: "#64748b",
+                fontSize: 16,
+                lineHeight: 1.72,
+                margin: 0,
+              }}
+            >
+              Home WiFi, security cameras, video doorbells, smart locks, smart
+              home systems, TV mounting and connected technology.
+            </p>
+          </div>
+
+          <div className="residential-grid">
+            {RESIDENTIAL_SERVICE_GROUPS.map((group) => (
+              <div
+                key={group.title}
+                className="service-card"
+                style={{
+                  background: "#ffffff",
+                  border: "1px solid #e2e8f0",
+                  borderRadius: 17,
+                  padding: 24,
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    gap: 13,
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 45,
+                      height: 45,
+                      borderRadius: 12,
+                      background: "#eff6ff",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: 24,
+                      flexShrink: 0,
+                    }}
+                  >
+                    {group.icon}
+                  </div>
+
+                  <h3
+                    style={{
+                      fontSize: 18,
+                      fontWeight: 800,
+                      margin: 0,
+                    }}
+                  >
+                    {group.title}
+                  </h3>
+                </div>
+
+                <p
+                  style={{
+                    fontSize: 14,
+                    color: "#64748b",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {group.summary}
+                </p>
+
+                <div
+                  style={{
+                    borderTop: "1px solid #e2e8f0",
+                    paddingTop: 13,
+                  }}
+                >
+                  {group.items.map((item) => (
+                    <button
+                      key={item}
+                      className="service-item"
+                      onClick={() => requestService(item)}
+                    >
+                      <span style={{ color: "#2563eb", fontWeight: 900 }}>✓</span>
+                      <span>{item}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* AREAS */}
       <section
@@ -2112,8 +2162,8 @@ export default function App() {
               margin: "0 0 31px",
             }}
           >
-            Serving businesses and homeowners across Orange, Osceola and Polk
-            counties in Central Florida.
+            Serving businesses and homeowners across Orange, Osceola, Polk and Lake
+counties and surrounding Central Florida communities.
           </p>
 
           <div
