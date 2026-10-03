@@ -21,9 +21,10 @@ const COMMERCIAL_SERVICE_GROUPS = [
   {
     icon: "🌐",
     title: "Business Networking & WiFi",
+    href: "/business-wifi-networking",
     summary:
       "Reliable WiFi and active network connectivity for offices, stores and small commercial spaces.",
-      href: "/business-wifi-networking",
+      
     items: [
       "Business WiFi Installation",
       "WiFi Installation",
@@ -114,8 +115,10 @@ const COMMERCIAL_SERVICE_GROUPS = [
   {
   icon: "🛠️",
   title: "Small Business IT Support",
+  href: "/small-business-it-support",
   summary:
     "Practical on-site IT support, troubleshooting, configuration and technology cleanup for small businesses.",
+
   items: [
     "Small Business IT Support",
     "On-Site IT Support",

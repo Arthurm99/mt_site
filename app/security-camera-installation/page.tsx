@@ -4,11 +4,6 @@ const PHONE = "6892728874";
 const EMAIL = "mightytechsolutionsllc@gmail.com";
 const SITE_URL = "https://www.mightytechfl.com";
 
-const WA_MESSAGE = encodeURIComponent(
-  "Hi Mighty Tech Solutions! I need help with a security camera project."
-);
-
-const WA_URL = `https://wa.me/1${PHONE}?text=${WA_MESSAGE}`;
 const SMS_URL = `sms:+1${PHONE}`;
 
 // Temporary image.
@@ -472,9 +467,7 @@ export default function SecurityCameraInstallationPage() {
 
           <a
             className="header-whatsapp button-link"
-            href={WA_URL}
-            target="_blank"
-            rel="noreferrer"
+            href={SMS_URL}
             style={{
               background: "#0f172a",
               color: "#ffffff",
@@ -489,7 +482,7 @@ export default function SecurityCameraInstallationPage() {
               whiteSpace: "nowrap",
             }}
           >
-            💬 WhatsApp
+            📱 Text Us
           </a>
 
           <details
@@ -554,12 +547,10 @@ export default function SecurityCameraInstallationPage() {
               ))}
 
               <a
-                href={WA_URL}
-                target="_blank"
-                rel="noreferrer"
+                href={SMS_URL}
                 style={{
                   marginTop: 10,
-                  background: "#25d366",
+                  background: "#2563eb",
                   color: "#ffffff",
                   padding: "12px 16px",
                   borderRadius: 10,
@@ -569,7 +560,7 @@ export default function SecurityCameraInstallationPage() {
                   display: "block",
                 }}
               >
-                💬 WhatsApp
+                📱 Text Us
               </a>
             </div>
           </details>
@@ -1280,6 +1271,75 @@ export default function SecurityCameraInstallationPage() {
           </div>
         </section>
 
+        {/* RELATED SERVICES */}
+        <section
+          style={{
+            background: "#f8fafc",
+            padding: "70px 24px",
+          }}
+        >
+          <div style={{ maxWidth: 1120, margin: "0 auto" }}>
+            <div
+              style={{
+                maxWidth: 830,
+                background: "#ffffff",
+                border: "1px solid #e2e8f0",
+                borderRadius: 18,
+                padding: 30,
+              }}
+            >
+              <div
+                style={{
+                  color: "#2563eb",
+                  fontSize: 13,
+                  fontWeight: 800,
+                  textTransform: "uppercase",
+                  letterSpacing: "1px",
+                  marginBottom: 9,
+                }}
+              >
+                Related Technology Services
+              </div>
+
+              <h2
+                style={{
+                  fontSize: 25,
+                  fontWeight: 850,
+                  margin: "0 0 10px",
+                }}
+              >
+                Cameras depend on the network around them
+              </h2>
+
+              <p
+                style={{
+                  color: "#64748b",
+                  fontSize: 15,
+                  lineHeight: 1.7,
+                  margin: 0,
+                }}
+              >
+                If your camera project also needs stronger connectivity, see our{" "}
+                <a
+                  href="/business-wifi-networking/"
+                  style={{ color: "#2563eb", fontWeight: 750, textDecoration: "none" }}
+                >
+                  Business WiFi & Networking services
+                </a>
+                . For troubleshooting, device configuration and broader on-site
+                technology support, see our{" "}
+                <a
+                  href="/small-business-it-support/"
+                  style={{ color: "#2563eb", fontWeight: 750, textDecoration: "none" }}
+                >
+                  Small Business IT Support
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section
           style={{
@@ -1352,11 +1412,9 @@ export default function SecurityCameraInstallationPage() {
 
               <a
                 className="button-link"
-                href={WA_URL}
-                target="_blank"
-                rel="noreferrer"
+                href={`mailto:${EMAIL}`}
                 style={{
-                  background: "#25d366",
+                  background: "#334155",
                   color: "#ffffff",
                   padding: "14px 26px",
                   borderRadius: 12,
@@ -1365,7 +1423,7 @@ export default function SecurityCameraInstallationPage() {
                   fontWeight: 750,
                 }}
               >
-                💬 WhatsApp
+                ✉️ Email Us
               </a>
 
               <a
@@ -1381,7 +1439,7 @@ export default function SecurityCameraInstallationPage() {
                   fontWeight: 750,
                 }}
               >
-                📱 SMS
+                📱 Text Us
               </a>
             </div>
           </div>

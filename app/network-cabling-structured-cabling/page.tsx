@@ -4,11 +4,6 @@ const PHONE = "6892728874";
 const EMAIL = "mightytechsolutionsllc@gmail.com";
 const SITE_URL = "https://www.mightytechfl.com";
 
-const WA_MESSAGE = encodeURIComponent(
-  "Hi Mighty Tech Solutions! I need help with a network cabling or structured cabling project."
-);
-
-const WA_URL = `https://wa.me/1${PHONE}?text=${WA_MESSAGE}`;
 const SMS_URL = `sms:+1${PHONE}`;
 
 const HERO_IMAGE = "/Projects/network-infrastructure-upgrade.jpg";
@@ -500,9 +495,7 @@ export default function NetworkCablingPage() {
 
           <a
             className="header-whatsapp button-link"
-            href={WA_URL}
-            target="_blank"
-            rel="noreferrer"
+            href={SMS_URL}
             style={{
               background: "#0f172a",
               color: "#ffffff",
@@ -517,7 +510,7 @@ export default function NetworkCablingPage() {
               whiteSpace: "nowrap",
             }}
           >
-            💬 WhatsApp
+            📱 Text Us
           </a>
 
           <details
@@ -582,12 +575,10 @@ export default function NetworkCablingPage() {
               ))}
 
               <a
-                href={WA_URL}
-                target="_blank"
-                rel="noreferrer"
+                href={SMS_URL}
                 style={{
                   marginTop: 10,
-                  background: "#25d366",
+                  background: "#2563eb",
                   color: "#ffffff",
                   padding: "12px 16px",
                   borderRadius: 10,
@@ -597,7 +588,7 @@ export default function NetworkCablingPage() {
                   display: "block",
                 }}
               >
-                💬 WhatsApp
+                📱 Text Us
               </a>
             </div>
           </details>
@@ -1362,8 +1353,16 @@ export default function NetworkCablingPage() {
                 }}
               >
                 Ethernet infrastructure can also support WiFi access points,
-                network-connected equipment and camera systems. If your project
-                also includes surveillance, see our{" "}
+                network-connected equipment and camera systems. For active
+                connectivity, see our{" "}
+                <a className="context-link" href="/business-wifi-networking/">
+                  Business WiFi & Networking services
+                </a>
+                . For hands-on troubleshooting and device support, see our{" "}
+                <a className="context-link" href="/small-business-it-support/">
+                  Small Business IT Support
+                </a>
+                . If your project also includes surveillance, see our{" "}
                 <a
                   className="context-link"
                   href="/security-camera-installation/"
@@ -1448,11 +1447,9 @@ export default function NetworkCablingPage() {
 
               <a
                 className="button-link"
-                href={WA_URL}
-                target="_blank"
-                rel="noreferrer"
+                href={`mailto:${EMAIL}`}
                 style={{
-                  background: "#25d366",
+                  background: "#334155",
                   color: "#ffffff",
                   padding: "14px 26px",
                   borderRadius: 12,
@@ -1461,7 +1458,7 @@ export default function NetworkCablingPage() {
                   fontWeight: 750,
                 }}
               >
-                💬 WhatsApp
+                ✉️ Email Us
               </a>
 
               <a
@@ -1477,7 +1474,7 @@ export default function NetworkCablingPage() {
                   fontWeight: 750,
                 }}
               >
-                📱 SMS
+                📱 Text Us
               </a>
             </div>
           </div>

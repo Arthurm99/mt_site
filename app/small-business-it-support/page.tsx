@@ -6,17 +6,17 @@ const EMAIL = "mightytechsolutionsllc@gmail.com";
 const SITE_URL = "https://www.mightytechfl.com";
 
 export const metadata: Metadata = {
-  title: "Business WiFi Installation & Networking | Mighty Tech FL",
+  title: "Small Business IT Support | Mighty Tech Solutions",
   description:
-    "Business WiFi installation, access points, routers, switches, guest WiFi, mesh networking and troubleshooting for small businesses across Central Florida.",
+    "On-site small business IT support, troubleshooting, WiFi and network support, device setup and technology cleanup across Central Florida.",
   alternates: {
-    canonical: "/business-wifi-networking/",
+    canonical: "/small-business-it-support/",
   },
   openGraph: {
-    title: "Business WiFi Installation & Networking | Mighty Tech FL",
+    title: "Small Business IT Support | Mighty Tech Solutions",
     description:
-      "Business WiFi installation, access points, routers, switches, guest WiFi, mesh networking and troubleshooting across Central Florida.",
-    url: `${SITE_URL}/business-wifi-networking/`,
+      "Practical on-site IT support, troubleshooting, network support, device setup and technology cleanup for small businesses across Central Florida.",
+    url: `${SITE_URL}/small-business-it-support/`,
     siteName: "Mighty Tech Solutions LLC",
     type: "website",
   },
@@ -24,44 +24,59 @@ export const metadata: Metadata = {
 
 const SERVICES = [
   {
-    title: "Business WiFi Installation",
+    title: "Small Business IT Support",
     description:
-      "Wireless network installation and configuration for offices, stores and other small-business environments.",
+      "Practical on-site support for everyday technology problems that affect small offices, stores and commercial spaces.",
   },
   {
-    title: "Wireless Access Point Installation",
+    title: "On-Site IT Support",
     description:
-      "Access point placement and configuration to improve usable coverage where your team and customers actually need it.",
+      "Hands-on assistance when the problem requires someone physically at the location to diagnose, reconnect, replace or reconfigure equipment.",
   },
   {
-    title: "Router Installation & Configuration",
+    title: "IT Troubleshooting",
     description:
-      "Router replacement, setup and configuration for new locations, network upgrades and existing connectivity problems.",
-  },
-  {
-    title: "Network Switch Installation",
-    description:
-      "Switch installation and basic network equipment organization for connected workstations, cameras, access points and other devices.",
-  },
-  {
-    title: "Guest WiFi Setup",
-    description:
-      "Guest wireless setup for customer-facing businesses that need practical internet access separate from day-to-day business use.",
-  },
-  {
-    title: "Mesh Network Installation",
-    description:
-      "Mesh WiFi deployment for smaller commercial spaces where a practical multi-node wireless system is the right fit.",
-  },
-  {
-    title: "Network Optimization",
-    description:
-      "Improve placement, configuration and overall network layout when an existing system is underperforming.",
+      "Troubleshooting for common business technology problems involving devices, connectivity, peripherals and network equipment.",
   },
   {
     title: "Network Troubleshooting",
     description:
-      "Diagnose weak coverage, intermittent connectivity, poor device placement and common small-business network problems.",
+      "Diagnose connectivity issues, equipment problems and network behavior that is disrupting normal business use.",
+  },
+  {
+    title: "WiFi Troubleshooting",
+    description:
+      "Identify weak coverage, unstable connections, poor equipment placement and common configuration issues.",
+  },
+  {
+    title: "Device Setup & Configuration",
+    description:
+      "Setup and configuration for business devices and connected technology that need to work together reliably.",
+  },
+  {
+    title: "Network Equipment Replacement",
+    description:
+      "Replace and configure routers, switches, access points and related equipment when existing hardware is no longer reliable or appropriate.",
+  },
+  {
+    title: "Technology Audits",
+    description:
+      "Review the current setup to identify obvious weak points, disorganization, aging equipment and practical improvement opportunities.",
+  },
+  {
+    title: "Network Cleanup",
+    description:
+      "Clean up disorganized equipment, cabling and network layouts so the system is easier to understand, maintain and expand.",
+  },
+  {
+    title: "Equipment Reorganization",
+    description:
+      "Reorganize routers, switches, hubs, power supplies and other technology equipment into a cleaner and more practical arrangement.",
+  },
+  {
+    title: "New Office Technology Setup",
+    description:
+      "Help prepare a small office or business location with the core connectivity and technology needed for day-to-day operations.",
   },
 ];
 
@@ -72,49 +87,49 @@ const WHO_WE_HELP = [
   "Salons & Studios",
   "Automotive Businesses",
   "Property Managers",
+  "Hospitality Businesses",
   "Mobile Businesses",
-  "Customer-Facing Locations",
 ];
 
 const USE_CASES = [
   {
-    title: "Weak or inconsistent WiFi",
-    text: "Improve coverage when employees, customer areas or connected devices are losing signal or performing inconsistently.",
+    title: "Technology is working, but not reliably",
+    text: "Intermittent WiFi, devices dropping offline, unstable equipment or recurring problems can be harder to solve than a complete failure.",
   },
   {
-    title: "New business location",
-    text: "Set up the core WiFi, router and switching needed to get a new office or commercial space connected.",
+    title: "A business inherited a messy setup",
+    text: "Older routers, switches, cables and devices often accumulate without documentation or organization. We help make the environment understandable again.",
   },
   {
-    title: "Consumer equipment no longer fits",
-    text: "Replace or reorganize an improvised network that has grown beyond the equipment or layout it started with.",
+    title: "A device or network component needs replacement",
+    text: "When equipment fails or is no longer appropriate, we can replace and configure it without turning the job into a full IT overhaul.",
   },
   {
-    title: "Guest connectivity",
-    text: "Provide practical wireless access for customers, visitors or shared spaces without making the setup harder than it needs to be.",
+    title: "A new location needs practical technology setup",
+    text: "We can help establish the essential network, WiFi and device setup for a new small-business location.",
   },
 ];
 
 const PROCESS = [
   {
     step: "01",
-    title: "Understand the space",
-    text: "We review the location, current equipment, problem areas, connected devices and how the business actually uses the network.",
+    title: "Understand the problem",
+    text: "We start with what is actually failing, unreliable or difficult for the business to use.",
   },
   {
     step: "02",
-    title: "Plan the network",
-    text: "We determine practical equipment placement, WiFi coverage needs and whether the existing cabling can support the design.",
+    title: "Inspect the environment",
+    text: "We review the relevant devices, network equipment, connections and physical setup before changing things unnecessarily.",
   },
   {
     step: "03",
-    title: "Install & configure",
-    text: "We install and configure the selected router, access points, mesh system, switches and related network equipment.",
+    title: "Troubleshoot or improve",
+    text: "We repair, replace, reconfigure or reorganize the parts of the system that are creating the problem.",
   },
   {
     step: "04",
-    title: "Test & optimize",
-    text: "We verify connectivity, check coverage in the important areas and make final configuration adjustments.",
+    title: "Test the result",
+    text: "We verify the affected equipment and connectivity so the business can return to normal operation with a clearer setup.",
   },
 ];
 
@@ -134,34 +149,34 @@ const AREAS = [
 
 const FAQS = [
   {
-    q: "Do you install WiFi for small businesses?",
-    a: "Yes. Mighty Tech Solutions installs and configures WiFi systems for small offices, retail spaces, customer-facing businesses and other small commercial environments across Central Florida.",
+    q: "Do you provide on-site IT support for small businesses?",
+    a: "Yes. Mighty Tech Solutions provides practical on-site technology support for small businesses that need help with connectivity, WiFi, network equipment, devices and related troubleshooting.",
   },
   {
-    q: "Can you improve an existing business WiFi system?",
-    a: "Yes. We can troubleshoot weak coverage, poor equipment placement, unstable mesh systems, router issues and other common network problems before recommending replacement equipment.",
+    q: "Do you offer managed IT services or ongoing MSP contracts?",
+    a: "Not as a full managed IT or MSP product at this time. This service is focused on on-site support, troubleshooting, setup, equipment replacement, cleanup and practical technology projects.",
   },
   {
-    q: "Do you install wireless access points?",
-    a: "Yes. We install and configure wireless access points when they are a better fit than a consumer-style mesh system for the space and network requirements.",
+    q: "Can you troubleshoot business WiFi and network problems?",
+    a: "Yes. We troubleshoot WiFi coverage, router and switch issues, connectivity problems and other common small-business network problems.",
   },
   {
-    q: "Can you install Ethernet cabling for access points and network equipment?",
-    a: "Yes. Physical cabling is handled under our Network Cabling & Structured Cabling service, including Cat6, Ethernet runs, data drops, patch panels and network racks.",
+    q: "Can you replace routers, switches or access points?",
+    a: "Yes. We can replace and configure common network equipment when existing hardware has failed, is unreliable or needs to be upgraded.",
   },
   {
-    q: "Do you provide full managed IT services?",
-    a: "We currently focus on practical on-site technology support, networking, WiFi, troubleshooting and installation. We are not positioning this service as a full managed IT or MSP offering.",
+    q: "Can you help organize an existing network setup?",
+    a: "Yes. Network cleanup and equipment reorganization are part of this service. For new Cat6, Ethernet, data drops, patch panels or racks, use our Network Cabling & Structured Cabling service.",
   },
 ];
 
-export default function BusinessWifiNetworkingPage() {
+export default function SmallBusinessITSupportPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Business WiFi Installation & Networking",
-    serviceType: "Business WiFi Installation and Networking",
-    url: `${SITE_URL}/business-wifi-networking/`,
+    name: "Small Business IT Support",
+    serviceType: "Small Business IT Support",
+    url: `${SITE_URL}/small-business-it-support/`,
     provider: {
       "@type": "Organization",
       name: "Mighty Tech Solutions LLC",
@@ -180,7 +195,7 @@ export default function BusinessWifiNetworkingPage() {
       "Central Florida",
     ],
     description:
-      "Business WiFi installation, access points, routers, switches, guest WiFi, mesh networking, optimization and troubleshooting for small businesses across Central Florida.",
+      "On-site small business IT support, troubleshooting, WiFi and network support, device setup, equipment replacement and technology cleanup across Central Florida.",
   };
 
   return (
@@ -194,47 +209,66 @@ export default function BusinessWifiNetworkingPage() {
     >
       <style>
         {`
-          * { box-sizing: border-box; }
-          html { scroll-behavior: smooth; }
-          body { margin: 0; }
+          * {
+            box-sizing: border-box;
+          }
+
+          html {
+            scroll-behavior: smooth;
+          }
+
+          body {
+            margin: 0;
+          }
+
           a {
             transition:
               opacity 0.15s ease,
               transform 0.15s ease,
               box-shadow 0.15s ease;
           }
-          a:hover { opacity: 0.94; }
+
+          a:hover {
+            opacity: 0.94;
+          }
+
           .hero-grid {
             display: grid;
             grid-template-columns: 1.08fr 0.92fr;
             gap: 52px;
             align-items: center;
           }
+
           .service-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
           }
+
           .who-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 15px;
           }
+
           .use-case-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
           }
+
           .process-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 18px;
           }
+
           .related-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
           }
+
           .service-card,
           .use-case-card,
           .related-card {
@@ -243,6 +277,7 @@ export default function BusinessWifiNetworkingPage() {
               box-shadow 0.18s ease,
               border-color 0.18s ease;
           }
+
           .service-card:hover,
           .use-case-card:hover,
           .related-card:hover {
@@ -250,34 +285,71 @@ export default function BusinessWifiNetworkingPage() {
             box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
             border-color: #bfdbfe !important;
           }
-          .mobile-nav { display: none; }
+
+          .mobile-nav {
+            display: none;
+          }
 
           @media (max-width: 900px) {
-            .hero-grid { grid-template-columns: 1fr; }
+            .hero-grid {
+              grid-template-columns: 1fr;
+            }
+
             .process-grid,
-            .who-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .desktop-nav { display: none !important; }
-            .mobile-nav { display: block; }
+            .who-grid {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .related-grid {
+              grid-template-columns: 1fr;
+            }
+
+            .desktop-nav {
+              display: none !important;
+            }
+
+            .mobile-nav {
+              display: block;
+            }
           }
 
           @media (max-width: 720px) {
             .service-grid,
-            .use-case-grid,
-            .related-grid { grid-template-columns: 1fr; }
-            .hero-title { font-size: 39px !important; }
-            .section-title { font-size: 29px !important; }
+            .use-case-grid {
+              grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+              font-size: 39px !important;
+            }
+
+            .section-title {
+              font-size: 29px !important;
+            }
+
             .hero-section {
               padding-top: 52px !important;
               padding-bottom: 58px !important;
             }
-            .cta-band { padding: 36px 24px !important; }
+
+            .cta-band {
+              padding: 36px 24px !important;
+            }
           }
 
           @media (max-width: 520px) {
             .process-grid,
-            .who-grid { grid-template-columns: 1fr; }
-            .hero-title { font-size: 35px !important; }
-            .logo-image { height: 54px !important; }
+            .who-grid {
+              grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+              font-size: 35px !important;
+            }
+
+            .logo-image {
+              height: 54px !important;
+            }
           }
         `}
       </style>
@@ -315,13 +387,21 @@ export default function BusinessWifiNetworkingPage() {
               className="logo-image"
               src="/Logo_Horizontal_FB.JPG"
               alt="Mighty Tech Solutions LLC"
-              style={{ height: 64, width: "auto", display: "block" }}
+              style={{
+                height: 64,
+                width: "auto",
+                display: "block",
+              }}
             />
           </a>
 
           <nav
             className="desktop-nav"
-            style={{ display: "flex", alignItems: "center", gap: 20 }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 20,
+            }}
           >
             {[
               ["Commercial Services", "/#commercial-services"],
@@ -380,6 +460,7 @@ export default function BusinessWifiNetworkingPage() {
             >
               Menu
             </summary>
+
             <div
               style={{
                 padding: "0 24px 18px",
@@ -454,7 +535,10 @@ export default function BusinessWifiNetworkingPage() {
       >
         <div
           className="hero-grid"
-          style={{ maxWidth: 1120, margin: "0 auto" }}
+          style={{
+            maxWidth: 1120,
+            margin: "0 auto",
+          }}
         >
           <div>
             <div
@@ -471,7 +555,7 @@ export default function BusinessWifiNetworkingPage() {
                 marginBottom: 22,
               }}
             >
-              Business Networking · Central Florida
+              On-Site Technology Support · Central Florida
             </div>
 
             <h1
@@ -485,7 +569,7 @@ export default function BusinessWifiNetworkingPage() {
                 maxWidth: 720,
               }}
             >
-              Business WiFi Installation & Networking
+              Small Business IT Support
             </h1>
 
             <p
@@ -497,12 +581,18 @@ export default function BusinessWifiNetworkingPage() {
                 maxWidth: 720,
               }}
             >
-              Business WiFi, wireless access points, routers, switches, guest
-              WiFi, mesh networking and troubleshooting for small businesses
-              across Central Florida.
+              Practical on-site IT support, troubleshooting, WiFi and network
+              support, device setup, equipment replacement and technology
+              cleanup for small businesses across Central Florida.
             </p>
 
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <div
+              style={{
+                display: "flex",
+                gap: 12,
+                flexWrap: "wrap",
+              }}
+            >
               <a
                 href="/#contact"
                 style={{
@@ -545,9 +635,9 @@ export default function BusinessWifiNetworkingPage() {
               }}
             >
               {[
+                "On-site support",
+                "Troubleshooting + setup",
                 "Small-business focused",
-                "Installation + troubleshooting",
-                "Commercial networking",
               ].map((item) => (
                 <span
                   key={item}
@@ -576,8 +666,8 @@ export default function BusinessWifiNetworkingPage() {
             }}
           >
             <img
-              src="/Projects/business-mesh-wifi.jpg"
-              alt="Business WiFi installation and networking project"
+              src="/Projects/network-infrastructure-upgrade.jpg"
+              alt="Small business IT support and network troubleshooting"
               style={{
                 width: "100%",
                 minHeight: 390,
@@ -609,41 +699,48 @@ export default function BusinessWifiNetworkingPage() {
               letterSpacing: "1px",
             }}
           >
-            Reliable Business Connectivity
+            Practical Technology Support
           </div>
+
           <h2
             className="section-title"
             style={{
               fontSize: 35,
               fontWeight: 850,
               margin: 0,
-              maxWidth: 790,
+              maxWidth: 820,
             }}
           >
-            Your business network should work where the business actually happens
+            Not every technology problem requires a full IT department
           </h2>
+
           <p
             style={{
               color: "#64748b",
               fontSize: 16,
               lineHeight: 1.75,
               margin: 0,
-              maxWidth: 820,
+              maxWidth: 860,
             }}
           >
-            Weak coverage, poorly placed equipment and an improvised network can
-            create everyday problems for workstations, payment devices, cameras,
-            displays and connected business systems. We focus on practical
-            network design, installation and troubleshooting for small
-            commercial environments.
+            Small businesses often need someone who can come on site, understand
+            the equipment that is already there and solve the actual problem.
+            That may mean troubleshooting WiFi, replacing a router, cleaning up
+            a network setup, reconnecting devices or helping a new location get
+            its core technology working correctly.
           </p>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section style={{ background: "#f8fafc", padding: "78px 24px" }}>
+      <section
+        style={{
+          background: "#f8fafc",
+          padding: "78px 24px",
+        }}
+      >
         <div style={{ maxWidth: 1120, margin: "0 auto" }}>
-          <div style={{ maxWidth: 760, marginBottom: 40 }}>
+          <div style={{ maxWidth: 780, marginBottom: 40 }}>
             <div
               style={{
                 color: "#2563eb",
@@ -656,12 +753,18 @@ export default function BusinessWifiNetworkingPage() {
             >
               Services Included
             </div>
+
             <h2
               className="section-title"
-              style={{ fontSize: 33, fontWeight: 850, margin: "0 0 11px" }}
+              style={{
+                fontSize: 33,
+                fontWeight: 850,
+                margin: "0 0 11px",
+              }}
             >
-              Business WiFi & networking services
+              On-site IT support for everyday business technology
             </h2>
+
             <p
               style={{
                 color: "#64748b",
@@ -670,8 +773,8 @@ export default function BusinessWifiNetworkingPage() {
                 margin: 0,
               }}
             >
-              The focus here is active connectivity: WiFi, routing, switching,
-              network configuration and troubleshooting.
+              Focused on practical installation, troubleshooting, replacement,
+              cleanup and configuration — not a generic managed IT package.
             </p>
           </div>
 
@@ -697,6 +800,7 @@ export default function BusinessWifiNetworkingPage() {
                 >
                   ✓
                 </div>
+
                 <h3
                   style={{
                     fontSize: 18,
@@ -706,6 +810,7 @@ export default function BusinessWifiNetworkingPage() {
                 >
                   {service.title}
                 </h3>
+
                 <p
                   style={{
                     color: "#64748b",
@@ -728,10 +833,15 @@ export default function BusinessWifiNetworkingPage() {
           <div style={{ maxWidth: 740, marginBottom: 36 }}>
             <h2
               className="section-title"
-              style={{ fontSize: 33, fontWeight: 850, margin: "0 0 11px" }}
+              style={{
+                fontSize: 33,
+                fontWeight: 850,
+                margin: "0 0 11px",
+              }}
             >
               Built for small-business environments
             </h2>
+
             <p
               style={{
                 color: "#64748b",
@@ -740,9 +850,8 @@ export default function BusinessWifiNetworkingPage() {
                 margin: 0,
               }}
             >
-              We work with businesses that need reliable connectivity without
-              turning a straightforward network project into an oversized IT
-              deployment.
+              For businesses that need capable hands-on support without buying
+              an oversized technology package.
             </p>
           </div>
 
@@ -767,9 +876,14 @@ export default function BusinessWifiNetworkingPage() {
       </section>
 
       {/* USE CASES */}
-      <section style={{ background: "#0f172a", padding: "76px 24px" }}>
+      <section
+        style={{
+          background: "#0f172a",
+          padding: "76px 24px",
+        }}
+      >
         <div style={{ maxWidth: 1120, margin: "0 auto" }}>
-          <div style={{ maxWidth: 760, marginBottom: 38 }}>
+          <div style={{ maxWidth: 780, marginBottom: 38 }}>
             <div
               style={{
                 color: "#93c5fd",
@@ -782,6 +896,7 @@ export default function BusinessWifiNetworkingPage() {
             >
               Typical Use Cases
             </div>
+
             <h2
               className="section-title"
               style={{
@@ -791,20 +906,8 @@ export default function BusinessWifiNetworkingPage() {
                 margin: "0 0 11px",
               }}
             >
-              Common reasons businesses call us
+              Common reasons businesses need on-site support
             </h2>
-            <p
-              style={{
-                color: "#94a3b8",
-                fontSize: 16,
-                lineHeight: 1.72,
-                margin: 0,
-              }}
-            >
-              Most projects start with a practical problem: poor coverage,
-              unreliable connectivity, new equipment or a business location
-              that needs a cleaner network setup.
-            </p>
           </div>
 
           <div className="use-case-grid">
@@ -829,6 +932,7 @@ export default function BusinessWifiNetworkingPage() {
                 >
                   {item.title}
                 </h3>
+
                 <p
                   style={{
                     color: "#94a3b8",
@@ -861,11 +965,16 @@ export default function BusinessWifiNetworkingPage() {
             >
               Our Process
             </div>
+
             <h2
               className="section-title"
-              style={{ fontSize: 33, fontWeight: 850, margin: "0 0 11px" }}
+              style={{
+                fontSize: 33,
+                fontWeight: 850,
+                margin: 0,
+              }}
             >
-              From coverage problem to working network
+              Diagnose first, change only what makes sense
             </h2>
           </div>
 
@@ -890,6 +999,7 @@ export default function BusinessWifiNetworkingPage() {
                 >
                   {item.step}
                 </div>
+
                 <h3
                   style={{
                     fontSize: 17,
@@ -899,6 +1009,7 @@ export default function BusinessWifiNetworkingPage() {
                 >
                   {item.title}
                 </h3>
+
                 <p
                   style={{
                     color: "#64748b",
@@ -915,61 +1026,19 @@ export default function BusinessWifiNetworkingPage() {
         </div>
       </section>
 
-      {/* TECHNOLOGY */}
-      <section style={{ background: "#f8fafc", padding: "74px 24px" }}>
+      {/* REAL EXPERIENCE */}
+      <section
+        style={{
+          background: "#f8fafc",
+          padding: "76px 24px",
+        }}
+      >
         <div
+          className="hero-grid"
           style={{
             maxWidth: 1120,
             margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "minmax(0, 1fr)",
-            gap: 18,
           }}
-        >
-          <div
-            style={{
-              color: "#2563eb",
-              fontSize: 13,
-              fontWeight: 800,
-              textTransform: "uppercase",
-              letterSpacing: "1px",
-            }}
-          >
-            Network Equipment
-          </div>
-          <h2
-            className="section-title"
-            style={{
-              fontSize: 33,
-              fontWeight: 850,
-              margin: 0,
-              maxWidth: 760,
-            }}
-          >
-            The right equipment for the size and use of the space
-          </h2>
-          <p
-            style={{
-              color: "#64748b",
-              fontSize: 16,
-              lineHeight: 1.75,
-              margin: 0,
-              maxWidth: 850,
-            }}
-          >
-            Depending on the project, the network may use wireless access
-            points, routers, switches or mesh systems. We focus on equipment
-            placement, configuration and how the network supports the actual
-            devices and workflow in the business.
-          </p>
-        </div>
-      </section>
-
-      {/* REAL PROJECT */}
-      <section style={{ padding: "78px 24px" }}>
-        <div
-          className="hero-grid"
-          style={{ maxWidth: 1120, margin: "0 auto" }}
         >
           <div>
             <div
@@ -982,14 +1051,20 @@ export default function BusinessWifiNetworkingPage() {
                 marginBottom: 10,
               }}
             >
-              Real Project Experience
+              Real Field Experience
             </div>
+
             <h2
               className="section-title"
-              style={{ fontSize: 33, fontWeight: 850, margin: "0 0 14px" }}
+              style={{
+                fontSize: 33,
+                fontWeight: 850,
+                margin: "0 0 14px",
+              }}
             >
-              Business Mesh WiFi Upgrade — Orlando
+              Network cleanup, equipment reorganization and system recovery
             </h2>
+
             <p
               style={{
                 color: "#64748b",
@@ -998,10 +1073,12 @@ export default function BusinessWifiNetworkingPage() {
                 margin: "0 0 18px",
               }}
             >
-              For a local rent-a-car business, Mighty Tech Solutions configured
-              a TP-Link Deco X55 mesh system to improve reliable connectivity
-              throughout the facility.
+              Mighty Tech Solutions has worked on existing technology systems
+              that needed more than a new device. That includes network
+              reorganization, equipment cleanup, troubleshooting and recovery
+              of systems whose original configuration was no longer usable.
             </p>
+
             <p
               style={{
                 color: "#64748b",
@@ -1010,9 +1087,9 @@ export default function BusinessWifiNetworkingPage() {
                 margin: 0,
               }}
             >
-              This is the type of small-business project this service is built
-              around: practical network improvement using equipment and a layout
-              appropriate for the site.
+              The goal is practical: understand what is already there, preserve
+              what still makes sense and correct the parts that are creating the
+              problem.
             </p>
           </div>
 
@@ -1025,8 +1102,8 @@ export default function BusinessWifiNetworkingPage() {
             }}
           >
             <img
-              src="/Projects/business-mesh-wifi.jpg"
-              alt="Business mesh WiFi installation in Orlando"
+              src="/Projects/network-infrastructure-upgrade.jpg"
+              alt="Network infrastructure cleanup and reorganization"
               style={{
                 width: "100%",
                 height: 340,
@@ -1039,15 +1116,20 @@ export default function BusinessWifiNetworkingPage() {
       </section>
 
       {/* RELATED SERVICES */}
-      <section style={{ background: "#f8fafc", padding: "74px 24px" }}>
+      <section style={{ padding: "74px 24px" }}>
         <div style={{ maxWidth: 1120, margin: "0 auto" }}>
           <div style={{ maxWidth: 760, marginBottom: 34 }}>
             <h2
               className="section-title"
-              style={{ fontSize: 31, fontWeight: 850, margin: "0 0 11px" }}
+              style={{
+                fontSize: 31,
+                fontWeight: 850,
+                margin: "0 0 11px",
+              }}
             >
               Related technology services
             </h2>
+
             <p
               style={{
                 color: "#64748b",
@@ -1056,12 +1138,58 @@ export default function BusinessWifiNetworkingPage() {
                 margin: 0,
               }}
             >
-              WiFi and active network equipment often work alongside physical
-              cabling, connected security systems and hands-on IT support.
+              Some support calls turn into a more specific networking, cabling
+              or security project. These services handle those needs directly.
             </p>
           </div>
 
           <div className="related-grid">
+            <a
+              className="related-card"
+              href="/business-wifi-networking/"
+              style={{
+                display: "block",
+                background: "#ffffff",
+                border: "1px solid #e2e8f0",
+                borderRadius: 17,
+                padding: 24,
+                color: "#0f172a",
+                textDecoration: "none",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: 18,
+                  fontWeight: 800,
+                  marginBottom: 7,
+                }}
+              >
+                Business WiFi & Networking
+              </div>
+
+              <div
+                style={{
+                  color: "#64748b",
+                  fontSize: 14,
+                  lineHeight: 1.6,
+                }}
+              >
+                WiFi, access points, routers, switches, guest WiFi, optimization
+                and network troubleshooting.
+              </div>
+
+              <div
+                style={{
+                  color: "#2563eb",
+                  fontSize: 14,
+                  fontWeight: 750,
+                  marginTop: 14,
+                }}
+              >
+                View WiFi Services →
+              </div>
+            </a>
+
             <a
               className="related-card"
               href="/network-cabling-structured-cabling/"
@@ -1084,6 +1212,7 @@ export default function BusinessWifiNetworkingPage() {
               >
                 Network Cabling & Structured Cabling
               </div>
+
               <div
                 style={{
                   color: "#64748b",
@@ -1094,6 +1223,7 @@ export default function BusinessWifiNetworkingPage() {
                 Cat6, Ethernet, data drops, patch panels, network racks and
                 existing cabling troubleshooting.
               </div>
+
               <div
                 style={{
                   color: "#2563eb",
@@ -1103,50 +1233,6 @@ export default function BusinessWifiNetworkingPage() {
                 }}
               >
                 View Cabling Services →
-              </div>
-            </a>
-
-            <a
-              className="related-card"
-              href="/small-business-it-support/"
-              style={{
-                display: "block",
-                background: "#ffffff",
-                border: "1px solid #e2e8f0",
-                borderRadius: 17,
-                padding: 24,
-                color: "#0f172a",
-                textDecoration: "none",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: 18,
-                  fontWeight: 800,
-                  marginBottom: 7,
-                }}
-              >
-                Small Business IT Support
-              </div>
-              <div
-                style={{
-                  color: "#64748b",
-                  fontSize: 14,
-                  lineHeight: 1.6,
-                }}
-              >
-                On-site troubleshooting, device setup, network support, equipment
-                replacement and technology cleanup for small businesses.
-              </div>
-              <div
-                style={{
-                  color: "#2563eb",
-                  fontSize: 14,
-                  fontWeight: 750,
-                  marginTop: 14,
-                }}
-              >
-                View IT Support →
               </div>
             </a>
 
@@ -1172,6 +1258,7 @@ export default function BusinessWifiNetworkingPage() {
               >
                 Security Camera Installation
               </div>
+
               <div
                 style={{
                   color: "#64748b",
@@ -1182,6 +1269,7 @@ export default function BusinessWifiNetworkingPage() {
                 Commercial and residential camera installation, configuration,
                 upgrades and troubleshooting.
               </div>
+
               <div
                 style={{
                   color: "#2563eb",
@@ -1198,14 +1286,24 @@ export default function BusinessWifiNetworkingPage() {
       </section>
 
       {/* SERVICE AREAS */}
-      <section style={{ padding: "70px 24px" }}>
+      <section
+        style={{
+          background: "#f8fafc",
+          padding: "70px 24px",
+        }}
+      >
         <div style={{ maxWidth: 1120, margin: "0 auto" }}>
           <h2
             className="section-title"
-            style={{ fontSize: 31, fontWeight: 850, margin: "0 0 9px" }}
+            style={{
+              fontSize: 31,
+              fontWeight: 850,
+              margin: "0 0 9px",
+            }}
           >
-            Business WiFi Service Areas
+            Small Business IT Support Areas
           </h2>
+
           <p
             style={{
               color: "#64748b",
@@ -1217,12 +1315,18 @@ export default function BusinessWifiNetworkingPage() {
             counties and surrounding Central Florida communities.
           </p>
 
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+          <div
+            style={{
+              display: "flex",
+              gap: 10,
+              flexWrap: "wrap",
+            }}
+          >
             {AREAS.map((area) => (
               <span
                 key={area}
                 style={{
-                  background: "#f8fafc",
+                  background: "#ffffff",
                   border: "1px solid #e2e8f0",
                   borderRadius: 999,
                   padding: "9px 18px",
@@ -1239,7 +1343,7 @@ export default function BusinessWifiNetworkingPage() {
       </section>
 
       {/* FAQ */}
-      <section style={{ background: "#f8fafc", padding: "76px 24px" }}>
+      <section style={{ padding: "76px 24px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <div style={{ marginBottom: 34 }}>
             <div
@@ -1254,15 +1358,25 @@ export default function BusinessWifiNetworkingPage() {
             >
               FAQ
             </div>
+
             <h2
               className="section-title"
-              style={{ fontSize: 33, fontWeight: 850, margin: 0 }}
+              style={{
+                fontSize: 33,
+                fontWeight: 850,
+                margin: 0,
+              }}
             >
-              Business WiFi & networking questions
+              Small business IT support questions
             </h2>
           </div>
 
-          <div style={{ display: "grid", gap: 13 }}>
+          <div
+            style={{
+              display: "grid",
+              gap: 13,
+            }}
+          >
             {FAQS.map((item) => (
               <details
                 key={item.q}
@@ -1282,6 +1396,7 @@ export default function BusinessWifiNetworkingPage() {
                 >
                   {item.q}
                 </summary>
+
                 <p
                   style={{
                     color: "#64748b",
@@ -1329,8 +1444,9 @@ export default function BusinessWifiNetworkingPage() {
                 margin: "0 0 9px",
               }}
             >
-              Need better WiFi or a more reliable business network?
+              Need help with a technology problem at your business?
             </h2>
+
             <p
               style={{
                 color: "#94a3b8",
@@ -1339,12 +1455,18 @@ export default function BusinessWifiNetworkingPage() {
                 margin: 0,
               }}
             >
-              Tell us what is not working, what you are trying to improve or
-              what needs to be installed.
+              Tell us what is not working, what needs to be replaced or what
+              you are trying to set up.
             </p>
           </div>
 
-          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+          <div
+            style={{
+              display: "flex",
+              gap: 12,
+              flexWrap: "wrap",
+            }}
+          >
             <a
               href="/#contact"
               style={{
@@ -1359,6 +1481,7 @@ export default function BusinessWifiNetworkingPage() {
             >
               Request Service
             </a>
+
             <a
               href={`mailto:${EMAIL}`}
               style={{
@@ -1373,6 +1496,7 @@ export default function BusinessWifiNetworkingPage() {
             >
               ✉️ Email Us
             </a>
+
             <a
               href={SMS_URL}
               style={{
@@ -1416,13 +1540,20 @@ export default function BusinessWifiNetworkingPage() {
         >
           <a
             href={`tel:+1${PHONE}`}
-            style={{ color: "#64748b", textDecoration: "none" }}
+            style={{
+              color: "#64748b",
+              textDecoration: "none",
+            }}
           >
             (689) 272-8874
           </a>
+
           <a
             href={`mailto:${EMAIL}`}
-            style={{ color: "#64748b", textDecoration: "none" }}
+            style={{
+              color: "#64748b",
+              textDecoration: "none",
+            }}
           >
             {EMAIL}
           </a>
