@@ -23,6 +23,7 @@ const COMMERCIAL_SERVICE_GROUPS = [
     title: "Business Networking & WiFi",
     summary:
       "Reliable WiFi and active network connectivity for offices, stores and small commercial spaces.",
+      href: "/business-wifi-networking",
     items: [
       "Business WiFi Installation",
       "WiFi Installation",
