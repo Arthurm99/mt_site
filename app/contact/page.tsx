@@ -27,6 +27,14 @@ type FormState = {
   website: string;
 };
 
+type AnalyticsWindow = Window & {
+  gtag?: (
+    command: "event",
+    eventName: string,
+    parameters?: Record<string, string>
+  ) => void;
+};
+
 const INITIAL_FORM: FormState = {
   name: "",
   email: "",
@@ -86,6 +94,11 @@ export default function ContactPage() {
       if (!response.ok) {
         throw new Error(data?.error || "Unable to send your message.");
       }
+
+      (window as AnalyticsWindow).gtag?.("event", "generate_lead", {
+        service_name: form.service,
+        lead_source: "website_contact_form",
+      });
 
       setStatus("sent");
       setForm(INITIAL_FORM);
