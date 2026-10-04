@@ -3,9 +3,8 @@
 import { useState } from "react";
 
 const PHONE = "6892728874";
-const WA_URL = `https://wa.me/1${PHONE}`;
-const SMS_URL = `sms:+1${PHONE}`;
 const EMAIL = "mightytechsolutionsllc@gmail.com";
+const CONTACT_URL = "/contact";
 const GOOGLE_REVIEW_COUNT = 20;
 const GOOGLE_RATING = 5.0;
 
@@ -379,26 +378,9 @@ const AREAS = [
   "Dr. Phillips",
 ];
 
-type ContactForm = {
-  name: string;
-  phone: string;
-  city: string;
-  service: string;
-  message: string;
-};
-
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [sent, setSent] = useState(false);
   const [showAllReviews, setShowAllReviews] = useState(false);
-
-const [form, setForm] = useState<ContactForm>({
-  name: "",
-  phone: "",
-  city: "",
-  service: "",
-  message: "",
-});
 
   const visibleReviews = showAllReviews ? REVIEWS : REVIEWS.slice(0, 6);
 
@@ -411,29 +393,9 @@ const [form, setForm] = useState<ContactForm>({
     setMenuOpen(false);
   };
 
-  const requestService = (service: string) => {
-    setForm((current) => ({
-      ...current,
-      service,
-    }));
-
-    setTimeout(() => {
-      scrollTo("contact");
-    }, 50);
+  const requestService = () => {
+    window.location.href = CONTACT_URL;
   };
-
-const handleSend = () => {
-  if (!form.name || !form.phone || !form.service) return;
-
-  const msg = encodeURIComponent(
-    `Hi! I'm ${form.name}. I need help with: ${form.service}. City: ${
-      form.city || "Not provided"
-    }. ${form.message} My phone: ${form.phone}`
-  );
-
-  window.open(`https://wa.me/1${PHONE}?text=${msg}`, "_blank");
-  setSent(true);
-};
 
   const toggleReviews = () => {
     if (showAllReviews) {
@@ -598,7 +560,7 @@ const handleSend = () => {
               display: none !important;
             }
 
-            .header-whatsapp {
+            .header-contact {
               display: none !important;
             }
 
@@ -733,10 +695,8 @@ const handleSend = () => {
           </nav>
 
           <a
-            className="header-whatsapp"
-            href={WA_URL}
-            target="_blank"
-            rel="noreferrer"
+            className="header-contact"
+            href={CONTACT_URL}
             style={{
               background: "#0f172a",
               color: "#ffffff",
@@ -751,7 +711,7 @@ const handleSend = () => {
               whiteSpace: "nowrap",
             }}
           >
-            💬 WhatsApp
+            Contact Us
           </a>
 
           <button
@@ -811,12 +771,11 @@ const handleSend = () => {
               ))}
 
               <a
-                href={WA_URL}
-                target="_blank"
-                rel="noreferrer"
+                href={CONTACT_URL}
+                onClick={() => setMenuOpen(false)}
                 style={{
                   marginTop: 10,
-                  background: "#25d366",
+                  background: "#2563eb",
                   color: "#ffffff",
                   padding: "13px 18px",
                   borderRadius: 10,
@@ -825,7 +784,7 @@ const handleSend = () => {
                   fontWeight: 700,
                 }}
               >
-                💬 WhatsApp
+                Contact Us
               </a>
             </div>
           </div>
@@ -902,21 +861,20 @@ const handleSend = () => {
                 flexWrap: "wrap",
               }}
             >
-              <button
-                onClick={() => scrollTo("contact")}
+              <a
+                href={CONTACT_URL}
                 style={{
                   background: "#2563eb",
                   color: "#ffffff",
                   padding: "15px 28px",
                   borderRadius: 12,
-                  border: "none",
-                  cursor: "pointer",
+                  textDecoration: "none",
                   fontSize: 15,
                   fontWeight: 750,
                 }}
               >
-                Request Service
-              </button>
+                Contact Us
+              </a>
 
               <a
                 href={`tel:+1${PHONE}`}
@@ -1002,321 +960,127 @@ const handleSend = () => {
             </div>
           </div>
 
-          {/* CONTACT */}
+          {/* HERO PROJECT IMAGES */}
           <div
-            id="contact"
             style={{
               background: "#ffffff",
               border: "1px solid #e2e8f0",
               borderRadius: 20,
-              padding: 32,
+              overflow: "hidden",
               boxShadow: "0 8px 45px rgba(15,23,42,0.12)",
-              scrollMarginTop: 105,
             }}
           >
-            <h2
+            <div
               style={{
-                fontSize: 22,
-                fontWeight: 800,
-                margin: "0 0 7px",
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                minHeight: 440,
               }}
             >
-              Tell us what you need
-            </h2>
-
-            <p
-              style={{
-                fontSize: 13,
-                color: "#64748b",
-                lineHeight: 1.55,
-                margin: "0 0 22px",
-              }}
-            >
-              Describe the project or problem and we&apos;ll follow up with
-              availability and next steps.
-            </p>
-
-            {sent ? (
-              <div style={{ textAlign: "center", padding: "32px 0" }}>
-                <div style={{ fontSize: 42 }}>✅</div>
-
-                <p style={{ fontWeight: 750, marginTop: 12 }}>
-                  Request opened in WhatsApp.
-                </p>
-
-                <p style={{ color: "#64748b", fontSize: 14 }}>
-                  Send the message and we&apos;ll get back to you.
-                </p>
-
-                <button
-                  onClick={() => setSent(false)}
-                  style={{
-                    marginTop: 16,
-                    background: "#0f172a",
-                    color: "#ffffff",
-                    border: "none",
-                    padding: "10px 24px",
-                    borderRadius: 10,
-                    cursor: "pointer",
-                    fontWeight: 650,
-                  }}
-                >
-                  Start another request
-                </button>
-              </div>
-            ) : (
               <div
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 14,
+                  position: "relative",
+                  minHeight: 440,
+                  overflow: "hidden",
+                  borderRight: "1px solid #e2e8f0",
                 }}
               >
-                <div>
-                  <label
-                    style={{
-                      display: "block",
-                      fontSize: 13,
-                      fontWeight: 650,
-                      color: "#374151",
-                      marginBottom: 5,
-                    }}
-                  >
-                    Name
-                  </label>
-
-                  <input
-                    type="text"
-                    placeholder="Your name"
-                    value={form.name}
-                    onChange={(e) =>
-                      setForm((current) => ({
-                        ...current,
-                        name: e.target.value,
-                      }))
-                    }
-                    style={{
-                      width: "100%",
-                      padding: "11px 14px",
-                      borderRadius: 10,
-                      border: "1.5px solid #e2e8f0",
-                      fontSize: 14,
-                      outline: "none",
-                    }}
-                  />
-                </div>
-
-                <div>
-                  <label
-                    style={{
-                      display: "block",
-                      fontSize: 13,
-                      fontWeight: 650,
-                      color: "#374151",
-                      marginBottom: 5,
-                    }}
-                  >
-                    City
-                  </label>
-
-                  <input
-                    type="text"
-                    placeholder="Orlando, Davenport, Clermont..."
-                    value={form.city}
-                    onChange={(e) =>
-                      setForm((current) => ({
-                        ...current,
-                        city: e.target.value,
-                      }))
-                    }
-                    style={{
-                      width: "100%",
-                      padding: "11px 14px",
-                      borderRadius: 10,
-                      border: "1.5px solid #e2e8f0",
-                      fontSize: 14,
-                      outline: "none",
-                    }}
-                  />
-                </div>
-
-                <div>
-                  <label
-                    style={{
-                      display: "block",
-                      fontSize: 13,
-                      fontWeight: 650,
-                      color: "#374151",
-                      marginBottom: 5,
-                    }}
-                  >
-                    Phone
-                  </label>
-
-                  <input
-                    type="tel"
-                    placeholder="(407) 555-0000"
-                    value={form.phone}
-                    onChange={(e) =>
-                      setForm((current) => ({
-                        ...current,
-                        phone: e.target.value,
-                      }))
-                    }
-                    style={{
-                      width: "100%",
-                      padding: "11px 14px",
-                      borderRadius: 10,
-                      border: "1.5px solid #e2e8f0",
-                      fontSize: 14,
-                      outline: "none",
-                    }}
-                  />
-                </div>
-
-                <div>
-                  <label
-                    style={{
-                      display: "block",
-                      fontSize: 13,
-                      fontWeight: 650,
-                      color: "#374151",
-                      marginBottom: 5,
-                    }}
-                  >
-                    Service needed
-                  </label>
-
-                  <select
-                    value={form.service}
-                    onChange={(e) =>
-                      setForm((current) => ({
-                        ...current,
-                        service: e.target.value,
-                      }))
-                    }
-                    style={{
-                      width: "100%",
-                      padding: "11px 14px",
-                      borderRadius: 10,
-                      border: "1.5px solid #e2e8f0",
-                      fontSize: 14,
-                      background: "#ffffff",
-                    }}
-                  
-                  >
-                   
-                    <option value="" disabled>
-                    Select a service
-                    </option>
-                  
-                    {COMMERCIAL_SERVICE_GROUPS.map((group) => (
-                      <optgroup key={group.title} label={group.title}>
-                        {group.items.map((item) => (
-                          <option key={item} value={item}>
-                            {item}
-                          </option>
-                        ))}
-                      </optgroup>
-                    ))}
-
-                    {RESIDENTIAL_SERVICE_GROUPS.map((group) => (
-                      <optgroup
-                        key={group.title}
-                        label={`Residential - ${group.title}`}
-                      >
-                        {group.items.map((item) => (
-                          <option key={item} value={item}>
-                            {item}
-                          </option>
-                        ))}
-                      </optgroup>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label
-                    style={{
-                      display: "block",
-                      fontSize: 13,
-                      fontWeight: 650,
-                      color: "#374151",
-                      marginBottom: 5,
-                    }}
-                  >
-                    Message
-                  </label>
-
-                  <textarea
-                    placeholder="Briefly describe the project or problem"
-                    value={form.message}
-                    onChange={(e) =>
-                      setForm((current) => ({
-                        ...current,
-                        message: e.target.value,
-                      }))
-                    }
-                    style={{
-                      width: "100%",
-                      padding: "11px 14px",
-                      borderRadius: 10,
-                      border: "1.5px solid #e2e8f0",
-                      fontSize: 14,
-                      minHeight: 84,
-                      resize: "vertical",
-                    }}
-                  />
-                </div>
-
-                <button
-                  onClick={handleSend}
+                <img
+                  src="/Projects/business-mesh-wifi.jpg"
+                  alt="Commercial business WiFi and technology infrastructure project by Mighty Tech Solutions"
                   style={{
-                    background: "#25d366",
-                    color: "#ffffff",
-                    border: "none",
-                    padding: "14px",
-                    borderRadius: 12,
-                    cursor: "pointer",
-                    fontSize: 15,
-                    fontWeight: 750,
+                    width: "100%",
+                    height: "100%",
+                    minHeight: 440,
+                    display: "block",
+                    objectFit: "cover",
                   }}
-                >
-                  💬 Send via WhatsApp
-                </button>
+                />
 
                 <div
                   style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: 16,
-                    flexWrap: "wrap",
+                    position: "absolute",
+                    left: 14,
+                    bottom: 14,
+                    background: "rgba(15,23,42,0.88)",
+                    color: "#ffffff",
+                    borderRadius: 999,
+                    padding: "8px 12px",
+                    fontSize: 12,
+                    fontWeight: 800,
                   }}
                 >
-                  <a
-                    href={`tel:+1${PHONE}`}
-                    style={{
-                      fontSize: 13,
-                      color: "#2563eb",
-                      textDecoration: "none",
-                    }}
-                  >
-                    📞 (689) 272-8874
-                  </a>
-
-                  <a
-                    href={`mailto:${EMAIL}`}
-                    style={{
-                      fontSize: 13,
-                      color: "#2563eb",
-                      textDecoration: "none",
-                    }}
-                  >
-                    ✉️ Email us
-                  </a>
+                  Commercial Technology
                 </div>
               </div>
-            )}
+
+              <div
+                style={{
+                  position: "relative",
+                  minHeight: 440,
+                  overflow: "hidden",
+                }}
+              >
+                <img
+                  src="/Projects/security-camera-av-installation.jpg"
+                  alt="Residential security camera and AV installation by Mighty Tech Solutions"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    minHeight: 440,
+                    display: "block",
+                    objectFit: "cover",
+                  }}
+                />
+
+                <div
+                  style={{
+                    position: "absolute",
+                    left: 14,
+                    bottom: 14,
+                    background: "rgba(255,255,255,0.92)",
+                    color: "#0f172a",
+                    borderRadius: 999,
+                    padding: "8px 12px",
+                    fontSize: 12,
+                    fontWeight: 800,
+                  }}
+                >
+                  Residential Technology
+                </div>
+              </div>
+            </div>
+
+            <div
+              style={{
+                padding: "16px 22px",
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 16,
+                alignItems: "center",
+                flexWrap: "wrap",
+              }}
+            >
+              <div
+                style={{
+                  color: "#0f172a",
+                  fontSize: 15,
+                  fontWeight: 800,
+                }}
+              >
+                Commercial + Residential Technology Services
+              </div>
+
+              <div
+                style={{
+                  color: "#64748b",
+                  fontSize: 12,
+                  fontWeight: 650,
+                }}
+              >
+                Central Florida
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1439,7 +1203,7 @@ const handleSend = () => {
                   <button
                     key={item}
                     className="service-item"
-                    onClick={() => requestService(item)}
+                    onClick={requestService}
                   >
                     <span style={{ color: "#2563eb", fontWeight: 900 }}>✓</span>
                     <span>{item}</span>
@@ -2125,7 +1889,7 @@ const handleSend = () => {
                     <button
                       key={item}
                       className="service-item"
-                      onClick={() => requestService(item)}
+                      onClick={requestService}
                     >
                       <span style={{ color: "#2563eb", fontWeight: 900 }}>✓</span>
                       <span>{item}</span>
@@ -2251,28 +2015,10 @@ counties and surrounding Central Florida communities.
               flexWrap: "wrap",
             }}
           >
-            <button
-              onClick={() => scrollTo("contact")}
+            <a
+              href={CONTACT_URL}
               style={{
                 background: "#2563eb",
-                color: "#ffffff",
-                border: "none",
-                padding: "14px 26px",
-                borderRadius: 12,
-                cursor: "pointer",
-                fontSize: 15,
-                fontWeight: 750,
-              }}
-            >
-              Request Service
-            </button>
-
-            <a
-              href={WA_URL}
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                background: "#25d366",
                 color: "#ffffff",
                 padding: "14px 26px",
                 borderRadius: 12,
@@ -2281,11 +2027,11 @@ counties and surrounding Central Florida communities.
                 fontWeight: 750,
               }}
             >
-              💬 WhatsApp
+              Contact Us
             </a>
 
             <a
-              href={SMS_URL}
+              href={`tel:+1${PHONE}`}
               style={{
                 background: "#ffffff",
                 color: "#0f172a",
@@ -2296,8 +2042,10 @@ counties and surrounding Central Florida communities.
                 fontWeight: 750,
               }}
             >
-              📱 SMS
+              📞 Call Now
             </a>
+
+
           </div>
         </div>
       </section>
