@@ -6,7 +6,7 @@ const SITE_URL = "https://www.mightytechfl.com";
 
 const SMS_URL = `sms:+1${PHONE}`;
 
-const HERO_IMAGE = "/Projects/network-infrastructure-upgrade.jpg";
+const HERO_IMAGE = "/Projects/patch_panel2.jpg";
 
 export const metadata: Metadata = {
   title: "Network Cabling & Structured Cabling | Mighty Tech FL",
@@ -781,7 +781,7 @@ export default function NetworkCablingPage() {
                     marginBottom: 5,
                   }}
                 >
-                  Real Project
+                  
                 </div>
 
                 <div
@@ -1445,37 +1445,7 @@ export default function NetworkCablingPage() {
                 Request Service
               </a>
 
-              <a
-                className="button-link"
-                href={`mailto:${EMAIL}`}
-                style={{
-                  background: "#334155",
-                  color: "#ffffff",
-                  padding: "14px 26px",
-                  borderRadius: 12,
-                  textDecoration: "none",
-                  fontSize: 15,
-                  fontWeight: 750,
-                }}
-              >
-                ✉️ Email Us
-              </a>
 
-              <a
-                className="button-link"
-                href={SMS_URL}
-                style={{
-                  background: "#ffffff",
-                  color: "#0f172a",
-                  padding: "14px 26px",
-                  borderRadius: 12,
-                  textDecoration: "none",
-                  fontSize: 15,
-                  fontWeight: 750,
-                }}
-              >
-                📱 Text Us
-              </a>
             </div>
           </div>
         </section>

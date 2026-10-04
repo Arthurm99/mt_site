@@ -467,7 +467,7 @@ export default function SecurityCameraInstallationPage() {
 
           <a
             className="header-whatsapp button-link"
-            href={SMS_URL}
+            href="/#contact"
             style={{
               background: "#0f172a",
               color: "#ffffff",
@@ -482,7 +482,7 @@ export default function SecurityCameraInstallationPage() {
               whiteSpace: "nowrap",
             }}
           >
-            📱 Text Us
+            Contact Us
           </a>
 
           <details
@@ -1410,37 +1410,6 @@ export default function SecurityCameraInstallationPage() {
                 Request Service
               </a>
 
-              <a
-                className="button-link"
-                href={`mailto:${EMAIL}`}
-                style={{
-                  background: "#334155",
-                  color: "#ffffff",
-                  padding: "14px 26px",
-                  borderRadius: 12,
-                  textDecoration: "none",
-                  fontSize: 15,
-                  fontWeight: 750,
-                }}
-              >
-                ✉️ Email Us
-              </a>
-
-              <a
-                className="button-link"
-                href={SMS_URL}
-                style={{
-                  background: "#ffffff",
-                  color: "#0f172a",
-                  padding: "14px 26px",
-                  borderRadius: 12,
-                  textDecoration: "none",
-                  fontSize: 15,
-                  fontWeight: 750,
-                }}
-              >
-                📱 Text Us
-              </a>
             </div>
           </div>
         </section>

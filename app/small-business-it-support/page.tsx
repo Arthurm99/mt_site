@@ -426,7 +426,7 @@ export default function SmallBusinessITSupportPage() {
           </nav>
 
           <a
-            href={SMS_URL}
+            href="/#contact"
             style={{
               background: "#0f172a",
               color: "#ffffff",
@@ -438,7 +438,7 @@ export default function SmallBusinessITSupportPage() {
               whiteSpace: "nowrap",
             }}
           >
-            📱 Text Us
+            Contact Us
           </a>
         </div>
 
@@ -666,7 +666,7 @@ export default function SmallBusinessITSupportPage() {
             }}
           >
             <img
-              src="/Projects/network-infrastructure-upgrade.jpg"
+              src="/Projects/pc-repair.jpg"
               alt="Small business IT support and network troubleshooting"
               style={{
                 width: "100%",
@@ -1102,7 +1102,7 @@ export default function SmallBusinessITSupportPage() {
             }}
           >
             <img
-              src="/Projects/network-infrastructure-upgrade.jpg"
+              src="/Projects/pc-repair.jpg"
               alt="Network infrastructure cleanup and reorganization"
               style={{
                 width: "100%",
@@ -1482,35 +1482,7 @@ export default function SmallBusinessITSupportPage() {
               Request Service
             </a>
 
-            <a
-              href={`mailto:${EMAIL}`}
-              style={{
-                background: "#334155",
-                color: "#ffffff",
-                padding: "14px 26px",
-                borderRadius: 12,
-                textDecoration: "none",
-                fontSize: 15,
-                fontWeight: 750,
-              }}
-            >
-              ✉️ Email Us
-            </a>
 
-            <a
-              href={SMS_URL}
-              style={{
-                background: "#ffffff",
-                color: "#0f172a",
-                padding: "14px 26px",
-                borderRadius: 12,
-                textDecoration: "none",
-                fontSize: 15,
-                fontWeight: 750,
-              }}
-            >
-              📱 Text Us
-            </a>
           </div>
         </div>
       </section>

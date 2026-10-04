@@ -1359,34 +1359,7 @@ export default function BusinessWifiNetworkingPage() {
             >
               Request Service
             </a>
-            <a
-              href={`mailto:${EMAIL}`}
-              style={{
-                background: "#334155",
-                color: "#ffffff",
-                padding: "14px 26px",
-                borderRadius: 12,
-                textDecoration: "none",
-                fontSize: 15,
-                fontWeight: 750,
-              }}
-            >
-              ✉️ Email Us
-            </a>
-            <a
-              href={SMS_URL}
-              style={{
-                background: "#ffffff",
-                color: "#0f172a",
-                padding: "14px 26px",
-                borderRadius: 12,
-                textDecoration: "none",
-                fontSize: 15,
-                fontWeight: 750,
-              }}
-            >
-              📱 Text Us
-            </a>
+
           </div>
         </div>
       </section>
