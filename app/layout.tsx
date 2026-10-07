@@ -157,6 +157,24 @@ export default function RootLayout({
           `}
         </Script>
 
+        <Script id="phone-click-tracking" strategy="afterInteractive">
+          {`
+            document.addEventListener('click', function(event) {
+              const target = event.target;
+              const link =
+                target && target.closest
+                  ? target.closest('a[href^="tel:"]')
+                  : null;
+
+              if (!link || typeof window.gtag !== 'function') return;
+
+              window.gtag('event', 'click_phone', {
+                page_path: window.location.pathname
+              });
+            });
+          `}
+        </Script>
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
