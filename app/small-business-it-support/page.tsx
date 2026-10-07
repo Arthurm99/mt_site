@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     "On-site small business IT support, troubleshooting, WiFi and network support, device setup and technology cleanup across Central Florida.",
   alternates: {
-    canonical: "/small-business-it-support/",
+    canonical: "/small-business-it-support",
   },
   openGraph: {
     title: "Small Business IT Support | Mighty Tech Solutions",
     description:
       "Practical on-site IT support, troubleshooting, network support, device setup and technology cleanup for small businesses across Central Florida.",
-    url: `${SITE_URL}/small-business-it-support/`,
+    url: `${SITE_URL}/small-business-it-support`,
     siteName: "Mighty Tech Solutions LLC",
     type: "website",
   },
@@ -176,7 +176,7 @@ export default function SmallBusinessITSupportPage() {
     "@type": "Service",
     name: "Small Business IT Support",
     serviceType: "Small Business IT Support",
-    url: `${SITE_URL}/small-business-it-support/`,
+    url: `${SITE_URL}/small-business-it-support`,
     provider: {
       "@type": "Organization",
       name: "Mighty Tech Solutions LLC",

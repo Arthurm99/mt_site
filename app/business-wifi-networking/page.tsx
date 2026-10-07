@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     "Business WiFi installation, access points, routers, switches, guest WiFi, mesh networking and troubleshooting for small businesses across Central Florida.",
   alternates: {
-    canonical: "/business-wifi-networking/",
+    canonical: "/business-wifi-networking",
   },
   openGraph: {
     title: "Business WiFi Installation & Networking | Mighty Tech FL",
     description:
       "Business WiFi installation, access points, routers, switches, guest WiFi, mesh networking and troubleshooting across Central Florida.",
-    url: `${SITE_URL}/business-wifi-networking/`,
+    url: `${SITE_URL}/business-wifi-networking`,
     siteName: "Mighty Tech Solutions LLC",
     type: "website",
   },
@@ -161,7 +161,7 @@ export default function BusinessWifiNetworkingPage() {
     "@type": "Service",
     name: "Business WiFi Installation & Networking",
     serviceType: "Business WiFi Installation and Networking",
-    url: `${SITE_URL}/business-wifi-networking/`,
+    url: `${SITE_URL}/business-wifi-networking`,
     provider: {
       "@type": "Organization",
       name: "Mighty Tech Solutions LLC",

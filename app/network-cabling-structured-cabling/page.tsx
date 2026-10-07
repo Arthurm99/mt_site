@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   description:
     "Network cabling and structured cabling for small businesses in Orlando and Central Florida. Cat6, data drops, patch panels, racks and network cleanup.",
   alternates: {
-    canonical: "/network-cabling-structured-cabling/",
+    canonical: "/network-cabling-structured-cabling",
   },
   openGraph: {
     title: "Network Cabling & Structured Cabling | Mighty Tech FL",
     description:
       "Network cabling, structured cabling, Cat6 installation, data drops, patch panels and network infrastructure for Central Florida businesses.",
-    url: `${SITE_URL}/network-cabling-structured-cabling/`,
+    url: `${SITE_URL}/network-cabling-structured-cabling`,
     siteName: "Mighty Tech Solutions",
     locale: "en_US",
     type: "website",
@@ -200,10 +200,10 @@ const FAQS = [
 const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": `${SITE_URL}/network-cabling-structured-cabling/#service`,
+  "@id": `${SITE_URL}/network-cabling-structured-cabling#service`,
   name: "Network Cabling & Structured Cabling",
   serviceType: "Network Cabling and Structured Cabling",
-  url: `${SITE_URL}/network-cabling-structured-cabling/`,
+  url: `${SITE_URL}/network-cabling-structured-cabling`,
   description:
     "Network cabling, structured cabling, Cat6 installation, network data drops, patch panels and network infrastructure services for small businesses across Central Florida.",
   provider: {

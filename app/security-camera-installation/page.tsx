@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   description:
     "Security camera installation for businesses and homes in Orlando and Central Florida. Wired and wireless cameras, setup, remote viewing and troubleshooting.",
   alternates: {
-    canonical: "/security-camera-installation/",
+    canonical: "/security-camera-installation",
   },
   openGraph: {
     title: "Security Camera Installation | Mighty Tech FL",
     description:
       "Security camera installation, configuration, upgrades and troubleshooting for businesses and homes across Central Florida.",
-    url: `${SITE_URL}/security-camera-installation/`,
+    url: `${SITE_URL}/security-camera-installation`,
     siteName: "Mighty Tech Solutions",
     locale: "en_US",
     type: "website",
@@ -182,10 +182,10 @@ const FAQS = [
 const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": `${SITE_URL}/security-camera-installation/#service`,
+  "@id": `${SITE_URL}/security-camera-installation#service`,
   name: "Security Camera Installation",
   serviceType: "Security Camera Installation",
-  url: `${SITE_URL}/security-camera-installation/`,
+  url: `${SITE_URL}/security-camera-installation`,
   description:
     "Security camera installation, configuration, remote viewing setup, upgrades and troubleshooting for businesses and homes across Central Florida.",
   provider: {
