@@ -115,6 +115,10 @@ const organizationJsonLd = {
       "@type": "City",
       name: "Haines City",
     },
+    {
+      "@type": "City",
+      name: "Winter Haven",
+    },    
   ],
 
   knowsAbout: [
