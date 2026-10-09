@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 const PHONE = "6892728874";
-const SMS_URL = `sms:+1${PHONE}`;
 const EMAIL = "mightytechsolutionsllc@gmail.com";
 const SITE_URL = "https://www.mightytechfl.com";
 
@@ -426,7 +425,7 @@ export default function SmallBusinessITSupportPage() {
           </nav>
 
           <a
-            href="/#contact"
+            href="/contact"
             style={{
               background: "#0f172a",
               color: "#ffffff",
@@ -504,21 +503,6 @@ export default function SmallBusinessITSupportPage() {
                 Areas
               </a>
 
-              <a
-                href={SMS_URL}
-                style={{
-                  marginTop: 6,
-                  background: "#2563eb",
-                  color: "#ffffff",
-                  padding: "12px 16px",
-                  borderRadius: 10,
-                  textDecoration: "none",
-                  textAlign: "center",
-                  fontWeight: 700,
-                }}
-              >
-                📱 Text Us
-              </a>
             </div>
           </details>
         </div>
@@ -594,7 +578,7 @@ export default function SmallBusinessITSupportPage() {
               }}
             >
               <a
-                href="/#contact"
+                href="/contact"
                 style={{
                   background: "#2563eb",
                   color: "#ffffff",
@@ -635,9 +619,9 @@ export default function SmallBusinessITSupportPage() {
               }}
             >
               {[
-                "On-site support",
-                "Troubleshooting + setup",
-                "Small-business focused",
+                "20 Google reviews",
+                "5.0 rating",
+                "Real small-business projects",
               ].map((item) => (
                 <span
                   key={item}
@@ -1146,7 +1130,7 @@ export default function SmallBusinessITSupportPage() {
           <div className="related-grid">
             <a
               className="related-card"
-              href="/business-wifi-networking/"
+              href="/business-wifi-networking"
               style={{
                 display: "block",
                 background: "#ffffff",
@@ -1192,7 +1176,7 @@ export default function SmallBusinessITSupportPage() {
 
             <a
               className="related-card"
-              href="/network-cabling-structured-cabling/"
+              href="/network-cabling-structured-cabling"
               style={{
                 display: "block",
                 background: "#ffffff",
@@ -1238,7 +1222,7 @@ export default function SmallBusinessITSupportPage() {
 
             <a
               className="related-card"
-              href="/security-camera-installation/"
+              href="/security-camera-installation"
               style={{
                 display: "block",
                 background: "#ffffff",
@@ -1468,7 +1452,7 @@ export default function SmallBusinessITSupportPage() {
             }}
           >
             <a
-              href="/#contact"
+              href="/contact"
               style={{
                 background: "#2563eb",
                 color: "#ffffff",
@@ -1482,6 +1466,20 @@ export default function SmallBusinessITSupportPage() {
               Request Service
             </a>
 
+            <a
+              href={`tel:+1${PHONE}`}
+              style={{
+                background: "#ffffff",
+                color: "#0f172a",
+                padding: "14px 26px",
+                borderRadius: 12,
+                textDecoration: "none",
+                fontSize: 15,
+                fontWeight: 750,
+              }}
+            >
+              📞 Call Now
+            </a>
 
           </div>
         </div>

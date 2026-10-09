@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 const PHONE = "6892728874";
-const SMS_URL = `sms:+1${PHONE}`;
 const EMAIL = "mightytechsolutionsllc@gmail.com";
 const SITE_URL = "https://www.mightytechfl.com";
 
@@ -346,7 +345,7 @@ export default function BusinessWifiNetworkingPage() {
           </nav>
 
           <a
-            href={SMS_URL}
+            href="/contact"
             style={{
               background: "#0f172a",
               color: "#ffffff",
@@ -358,8 +357,9 @@ export default function BusinessWifiNetworkingPage() {
               whiteSpace: "nowrap",
             }}
           >
-            📱 Text Us
+            Contact Us
           </a>
+
         </div>
 
         <div className="mobile-nav">
@@ -423,21 +423,6 @@ export default function BusinessWifiNetworkingPage() {
                 Areas
               </a>
 
-              <a
-                href={SMS_URL}
-                style={{
-                  marginTop: 6,
-                  background: "#2563eb",
-                  color: "#ffffff",
-                  padding: "12px 16px",
-                  borderRadius: 10,
-                  textDecoration: "none",
-                  textAlign: "center",
-                  fontWeight: 700,
-                }}
-              >
-                📱 Text Us
-              </a>
             </div>
           </details>
         </div>
@@ -504,7 +489,7 @@ export default function BusinessWifiNetworkingPage() {
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <a
-                href="/#contact"
+                href="/contact"
                 style={{
                   background: "#2563eb",
                   color: "#ffffff",
@@ -545,9 +530,9 @@ export default function BusinessWifiNetworkingPage() {
               }}
             >
               {[
-                "Small-business focused",
-                "Installation + troubleshooting",
-                "Commercial networking",
+                "20 Google reviews",
+                "5.0 rating",
+                "Real local business projects",
               ].map((item) => (
                 <span
                   key={item}
@@ -988,7 +973,7 @@ export default function BusinessWifiNetworkingPage() {
               className="section-title"
               style={{ fontSize: 33, fontWeight: 850, margin: "0 0 14px" }}
             >
-              Business Mesh WiFi Upgrade — Orlando
+              Business Mesh WiFi Upgrade 
             </h2>
             <p
               style={{
@@ -1025,7 +1010,7 @@ export default function BusinessWifiNetworkingPage() {
             }}
           >
             <img
-              src="/Projects/business-mesh-wifi.jpg"
+              src="/Projects/deco_mesh2.jpg"
               alt="Business mesh WiFi installation in Orlando"
               style={{
                 width: "100%",
@@ -1064,7 +1049,7 @@ export default function BusinessWifiNetworkingPage() {
           <div className="related-grid">
             <a
               className="related-card"
-              href="/network-cabling-structured-cabling/"
+              href="/network-cabling-structured-cabling"
               style={{
                 display: "block",
                 background: "#ffffff",
@@ -1108,7 +1093,7 @@ export default function BusinessWifiNetworkingPage() {
 
             <a
               className="related-card"
-              href="/small-business-it-support/"
+              href="/small-business-it-support"
               style={{
                 display: "block",
                 background: "#ffffff",
@@ -1152,7 +1137,7 @@ export default function BusinessWifiNetworkingPage() {
 
             <a
               className="related-card"
-              href="/security-camera-installation/"
+              href="/security-camera-installation"
               style={{
                 display: "block",
                 background: "#ffffff",
@@ -1204,7 +1189,7 @@ export default function BusinessWifiNetworkingPage() {
             className="section-title"
             style={{ fontSize: 31, fontWeight: 850, margin: "0 0 9px" }}
           >
-            Business WiFi Service Areas
+            Business Service Areas
           </h2>
           <p
             style={{
@@ -1346,7 +1331,7 @@ export default function BusinessWifiNetworkingPage() {
 
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <a
-              href="/#contact"
+              href="/contact"
               style={{
                 background: "#2563eb",
                 color: "#ffffff",
@@ -1358,6 +1343,21 @@ export default function BusinessWifiNetworkingPage() {
               }}
             >
               Request Service
+            </a>
+
+            <a
+              href={`tel:+1${PHONE}`}
+              style={{
+                background: "#ffffff",
+                color: "#0f172a",
+                padding: "14px 26px",
+                borderRadius: 12,
+                textDecoration: "none",
+                fontSize: 15,
+                fontWeight: 750,
+              }}
+            >
+              📞 Call Now
             </a>
 
           </div>

@@ -4,7 +4,6 @@ const PHONE = "6892728874";
 const EMAIL = "mightytechsolutionsllc@gmail.com";
 const SITE_URL = "https://www.mightytechfl.com";
 
-const SMS_URL = `sms:+1${PHONE}`;
 
 // Temporary image.
 // We can replace this later with the strongest security-camera project photo.
@@ -467,7 +466,7 @@ export default function SecurityCameraInstallationPage() {
 
           <a
             className="header-whatsapp button-link"
-            href="/#contact"
+            href="/contact"
             style={{
               background: "#0f172a",
               color: "#ffffff",
@@ -529,6 +528,7 @@ export default function SecurityCameraInstallationPage() {
                 ["Projects", "/#projects"],
                 ["Reviews", "/#reviews"],
                 ["Areas", "/#areas"],
+                ["Contact Us", "/contact"],
               ].map(([label, href]) => (
                 <a
                   key={label}
@@ -546,22 +546,6 @@ export default function SecurityCameraInstallationPage() {
                 </a>
               ))}
 
-              <a
-                href={SMS_URL}
-                style={{
-                  marginTop: 10,
-                  background: "#2563eb",
-                  color: "#ffffff",
-                  padding: "12px 16px",
-                  borderRadius: 10,
-                  textDecoration: "none",
-                  textAlign: "center",
-                  fontWeight: 700,
-                  display: "block",
-                }}
-              >
-                📱 Text Us
-              </a>
             </div>
           </details>
         </div>
@@ -655,7 +639,7 @@ export default function SecurityCameraInstallationPage() {
               >
                 <a
                   className="button-link"
-                  href="/#contact"
+                  href="/contact"
                   style={{
                     background: "#2563eb",
                     color: "#ffffff",
@@ -697,7 +681,7 @@ export default function SecurityCameraInstallationPage() {
                 {[
                   "Commercial & residential",
                   "5.0 Google rating",
-                  "Central Florida service",
+                  "20 Google reviews",
                 ].map((item) => (
                   <span
                     key={item}
@@ -1321,7 +1305,7 @@ export default function SecurityCameraInstallationPage() {
               >
                 If your camera project also needs stronger connectivity, see our{" "}
                 <a
-                  href="/business-wifi-networking/"
+                  href="/business-wifi-networking"
                   style={{ color: "#2563eb", fontWeight: 750, textDecoration: "none" }}
                 >
                   Business WiFi & Networking services
@@ -1329,7 +1313,7 @@ export default function SecurityCameraInstallationPage() {
                 . For troubleshooting, device configuration and broader on-site
                 technology support, see our{" "}
                 <a
-                  href="/small-business-it-support/"
+                  href="/small-business-it-support"
                   style={{ color: "#2563eb", fontWeight: 750, textDecoration: "none" }}
                 >
                   Small Business IT Support
@@ -1396,7 +1380,7 @@ export default function SecurityCameraInstallationPage() {
             >
               <a
                 className="button-link"
-                href="/#contact"
+                href="/contact"
                 style={{
                   background: "#2563eb",
                   color: "#ffffff",
@@ -1632,7 +1616,7 @@ export default function SecurityCameraInstallationPage() {
             >
               <a
                 className="button-link"
-                href="/#contact"
+                href="/contact"
                 style={{
                   background: "#2563eb",
                   color: "#ffffff",

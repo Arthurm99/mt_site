@@ -4,7 +4,6 @@ const PHONE = "6892728874";
 const EMAIL = "mightytechsolutionsllc@gmail.com";
 const SITE_URL = "https://www.mightytechfl.com";
 
-const SMS_URL = `sms:+1${PHONE}`;
 
 const HERO_IMAGE = "/Projects/patch_panel2.jpg";
 
@@ -494,8 +493,8 @@ export default function NetworkCablingPage() {
           </nav>
 
           <a
-            className="header-whatsapp button-link"
-            href={SMS_URL}
+            className="button-link"
+            href="/contact"
             style={{
               background: "#0f172a",
               color: "#ffffff",
@@ -504,13 +503,10 @@ export default function NetworkCablingPage() {
               fontSize: 14,
               fontWeight: 700,
               textDecoration: "none",
-              display: "flex",
-              alignItems: "center",
-              gap: 7,
               whiteSpace: "nowrap",
             }}
           >
-            📱 Text Us
+            Contact Us
           </a>
 
           <details
@@ -574,22 +570,7 @@ export default function NetworkCablingPage() {
                 </a>
               ))}
 
-              <a
-                href={SMS_URL}
-                style={{
-                  marginTop: 10,
-                  background: "#2563eb",
-                  color: "#ffffff",
-                  padding: "12px 16px",
-                  borderRadius: 10,
-                  textDecoration: "none",
-                  textAlign: "center",
-                  fontWeight: 700,
-                  display: "block",
-                }}
-              >
-                📱 Text Us
-              </a>
+
             </div>
           </details>
         </div>
@@ -682,7 +663,7 @@ export default function NetworkCablingPage() {
               >
                 <a
                   className="button-link"
-                  href="/#contact"
+                  href="/contact"
                   style={{
                     background: "#2563eb",
                     color: "#ffffff",
@@ -722,9 +703,9 @@ export default function NetworkCablingPage() {
                 }}
               >
                 {[
-                  "Small business focused",
-                  "Clean network installations",
-                  "Central Florida service",
+                  "20 Google reviews",
+                  "5.0 rating",
+                  "Real commercial projects",
                 ].map((item) => (
                   <span
                     key={item}
@@ -781,7 +762,7 @@ export default function NetworkCablingPage() {
                     marginBottom: 5,
                   }}
                 >
-                  
+                  Real project 
                 </div>
 
                 <div
@@ -1355,17 +1336,17 @@ export default function NetworkCablingPage() {
                 Ethernet infrastructure can also support WiFi access points,
                 network-connected equipment and camera systems. For active
                 connectivity, see our{" "}
-                <a className="context-link" href="/business-wifi-networking/">
+                <a className="context-link" href="/business-wifi-networking">
                   Business WiFi & Networking services
                 </a>
                 . For hands-on troubleshooting and device support, see our{" "}
-                <a className="context-link" href="/small-business-it-support/">
+                <a className="context-link" href="/small-business-it-support">
                   Small Business IT Support
                 </a>
                 . If your project also includes surveillance, see our{" "}
                 <a
                   className="context-link"
-                  href="/security-camera-installation/"
+                  href="/security-camera-installation"
                 >
                   security camera installation services
                 </a>
@@ -1431,7 +1412,7 @@ export default function NetworkCablingPage() {
             >
               <a
                 className="button-link"
-                href="/#contact"
+                href="/contact"
                 style={{
                   background: "#2563eb",
                   color: "#ffffff",
@@ -1668,7 +1649,7 @@ export default function NetworkCablingPage() {
             >
               <a
                 className="button-link"
-                href="/#contact"
+                href="/contact"
                 style={{
                   background: "#2563eb",
                   color: "#ffffff",
