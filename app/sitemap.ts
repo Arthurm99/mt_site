@@ -1,3 +1,4 @@
+
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -15,25 +16,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: "https://www.mightytechfl.com/security-camera-installation",
+      url: "https://www.mightytechfl.com/managed-it",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: "https://www.mightytechfl.com/network-cabling-structured-cabling",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: "https://www.mightytechfl.com/business-wifi-networking",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: "https://www.mightytechfl.com/small-business-it-support",
+      url: "https://www.mightytechfl.com/networks-infrastructure",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,

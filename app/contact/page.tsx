@@ -1,21 +1,79 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useEffect, useState, type FormEvent } from "react";
+import SiteHeader from "../../components/SiteHeader";
 
 const PHONE = "6892728874";
+const EMAIL = "mightytechsolutionsllc@gmail.com";
 
-const SERVICES = [
-  "Business WiFi & Networking",
-  "Network Cabling & Structured Cabling",
-  "Security Camera Installation",
-  "Small Business IT Support",
-  "Commercial AV / TV Installation",
-  "Residential WiFi & Networking",
-  "Smart Home & Access",
-  "Residential Security Technology",
-  "TV Mounting / Home AV",
+// Keep display values human-readable: the existing /api/contact endpoint receives
+// the same "service" string field as before, not a URL slug.
+const BUSINESS_SERVICES = [
+  "Managed IT Services",
+  "IT Support",
+  "Networks & Infrastructure",
+  "Security & Surveillance",
+  "Technology Projects",
+  "Digital Solutions",
+];
+
+const HOME_SERVICES = [
+  "Home WiFi & Networking",
+  "Security Cameras",
+  "Smart Home Technology",
+  "AV / TV / Audio",
+];
+
+// Every service CTA on the homepage routes to /contact?service=<slug>.
+// Historical links from older pages are also recognized when possible.
+const SERVICE_PRESETS: Record<string, string> = {
+  "managed-it": "Managed IT Services",
+  "it-support": "IT Support",
+  "networks-infrastructure": "Networks & Infrastructure",
+  "security-surveillance": "Security & Surveillance",
+  "technology-project": "Technology Projects",
+  "digital-solutions": "Digital Solutions",
+  "home-wifi": "Home WiFi & Networking",
+  "security-cameras": "Security Cameras",
+  "smart-home": "Smart Home Technology",
+  av: "AV / TV / Audio",
+  "technology-troubleshooting": "Technology Troubleshooting",
+  "home-service": "General Home Technology Request",
+
+  // Legacy compatibility aliases. No changes to public SEO routes are required.
+  "small-business-it-support": "IT Support",
+  "business-wifi-networking": "Networks & Infrastructure",
+  "network-cabling-structured-cabling": "Networks & Infrastructure",
+  "security-camera-installation": "Security Cameras",
+  "residential-wifi-networking": "Home WiFi & Networking",
+  "tv-mounting": "AV / TV / Audio",
+};
+
+const GENERAL_SERVICES = [
+  "Technology Troubleshooting",
+  "General Home Technology Request",
+];
+
+const ALL_SERVICES = [
+  ...BUSINESS_SERVICES,
+  ...HOME_SERVICES,
+  ...GENERAL_SERVICES,
   "Other",
 ];
+
+function resolveServiceFromUrl(): string {
+  const value = new URLSearchParams(window.location.search)
+    .get("service")
+    ?.trim();
+  if (!value) return "";
+
+  const normalized = value.toLowerCase();
+  const preset = SERVICE_PRESETS[normalized];
+  if (preset) return preset;
+
+  // Also accept a readable service value for backward compatibility.
+  return ALL_SERVICES.find((service) => service.toLowerCase() === normalized) ?? "";
+}
 
 type FormState = {
   name: string;
@@ -51,13 +109,37 @@ export default function ContactPage() {
     "idle"
   );
   const [errorMessage, setErrorMessage] = useState("");
+  const [requestedService, setRequestedService] = useState("");
+
+  // Read the query string on the client. This avoids useSearchParams/Suspense
+  // requirements during Next.js static prerendering.
+  useEffect(() => {
+    const synchronizeService = () => {
+      const service = resolveServiceFromUrl();
+      setRequestedService(service);
+      if (service) {
+        setForm((current) => ({ ...current, service }));
+      }
+    };
+
+    synchronizeService();
+    window.addEventListener("popstate", synchronizeService);
+    return () => window.removeEventListener("popstate", synchronizeService);
+  }, []);
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((current) => ({ ...current, [key]: value }));
+    if (status === "error") {
+      setStatus("idle");
+      setErrorMessage("");
+    }
   }
 
+  // Preserve the existing POST endpoint, JSON field names, validation,
+  // honeypot and successful generate_lead event.
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (status === "sending") return;
     setErrorMessage("");
 
     if (!form.name.trim() || !form.email.trim() || !form.phone.trim()) {
@@ -101,7 +183,7 @@ export default function ContactPage() {
       });
 
       setStatus("sent");
-      setForm(INITIAL_FORM);
+      setForm({ ...INITIAL_FORM, service: requestedService });
     } catch (error) {
       setStatus("error");
       setErrorMessage(
@@ -113,589 +195,470 @@ export default function ContactPage() {
   }
 
   return (
-    <main
-      style={{
-        fontFamily: "system-ui, sans-serif",
-        color: "#0f172a",
-        background: "#ffffff",
-        minHeight: "100vh",
-      }}
-    >
-      <style>
-        {`
-          * { box-sizing: border-box; }
-          html { scroll-behavior: smooth; }
-          body { margin: 0; }
+    <div className="mts-contact-page">
+      <style>{`
+        .mts-contact-page {
+          min-height: 100vh;
+          color: #08264A;
+          background: #FFFFFF;
+          font-family: system-ui, sans-serif;
+        }
 
-          .desktop-nav {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-          }
+        .mts-contact-page *,
+        .mts-contact-page *::before,
+        .mts-contact-page *::after { box-sizing: border-box; }
 
-          .contact-grid {
-            display: grid;
-            grid-template-columns: 0.82fr 1.18fr;
-            gap: 44px;
-            align-items: start;
-          }
+        /* Align the shared header's conversion button with the logo navy. */
+        .mts-contact-page .mts-header-call,
+        .mts-contact-page .mts-mobile-call {
+          background: #011535 !important;
+          color: #FFFFFF !important;
+        }
+        .mts-contact-page .mts-header-call:hover,
+        .mts-contact-page .mts-mobile-call:hover {
+          background: #103765 !important;
+        }
 
-          .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-          }
+        .mts-contact-section {
+          background: linear-gradient(124deg, #EDF5FD 0%, #F5F9FE 50%, #FFFFFF 100%);
+          padding: 82px 24px 96px;
+        }
 
-          .full-width {
-            grid-column: 1 / -1;
-          }
+        .mts-contact-grid {
+          display: grid;
+          grid-template-columns: minmax(0, 0.89fr) minmax(0, 1.11fr);
+          gap: 58px;
+          align-items: start;
+          max-width: 1120px;
+          margin: 0 auto;
+        }
 
-          .field-label {
-            display: block;
-            font-size: 13px;
-            font-weight: 750;
-            color: #334155;
-            margin-bottom: 7px;
-          }
+        .mts-contact-kicker {
+          display: inline-block;
+          color: #0866E8;
+          font-size: 13px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 1.2px;
+          margin-bottom: 20px;
+        }
 
-          .field-input {
-            width: 100%;
-            border: 1px solid #cbd5e1;
-            border-radius: 11px;
-            padding: 13px 14px;
-            font: inherit;
-            font-size: 15px;
-            color: #0f172a;
-            background: #ffffff;
-            outline: none;
-          }
+        .mts-contact-title {
+          color: #08264A;
+          font-weight: 850;
+          font-size: clamp(35px, 4vw, 49px);
+          line-height: 1.1;
+          letter-spacing: -1.3px;
+          margin: 0 0 20px;
+        }
 
-          .field-input:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
-          }
+        .mts-contact-lead {
+          color: #526981;
+          font-size: 17px;
+          line-height: 1.75;
+          margin: 0 0 30px;
+          max-width: 500px;
+        }
 
-          .mobile-menu {
-            display: none;
-          }
+        .mts-contact-info {
+          display: grid;
+          gap: 16px;
+          max-width: 500px;
+        }
 
-          @media (max-width: 900px) {
-            .desktop-nav {
-              display: none !important;
-            }
+        .mts-contact-info-box {
+          border: 1px solid #D7E6F4;
+          border-radius: 18px;
+          padding: 24px;
+          background: #FFFFFF;
+          box-shadow: 0 6px 20px rgba(0,35,75,0.035);
+        }
 
-            .mobile-menu {
-              display: block;
-            }
+        .mts-contact-info-box--dark {
+          background: #011535;
+          border-color: #011535;
+          color: #FFFFFF;
+        }
 
-            .contact-grid {
-              grid-template-columns: 1fr;
-            }
-          }
+        .mts-contact-info-label {
+          margin: 0 0 10px;
+          font-size: 15px;
+          font-weight: 800;
+        }
 
-          @media (max-width: 640px) {
-            .form-grid {
-              grid-template-columns: 1fr;
-            }
+        .mts-contact-phone {
+          color: #FFFFFF;
+          font-size: 24px;
+          font-weight: 800;
+          text-decoration: none;
+          letter-spacing: -0.2px;
+        }
 
-            .full-width {
-              grid-column: auto;
-            }
+        .mts-contact-phone:hover { text-decoration: underline; }
 
-            .contact-title {
-              font-size: 36px !important;
-            }
+        .mts-contact-info-copy {
+          margin: 8px 0 0;
+          color: #526981;
+          font-size: 14px;
+          line-height: 1.65;
+        }
 
-            .logo-image {
-              height: 54px !important;
-            }
-          }
-        `}
-      </style>
+        .mts-contact-info-box--dark .mts-contact-info-copy { color: #C8DFF2; }
 
-      <header
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 50,
-          background: "rgba(255,255,255,0.97)",
-          borderBottom: "1px solid #e2e8f0",
-          backdropFilter: "blur(10px)",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1180,
-            margin: "0 auto",
-            padding: "0 24px",
-            height: 80,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 20,
-          }}
-        >
-          <a href="/" style={{ display: "flex", alignItems: "center" }}>
-            <img
-              className="logo-image"
-              src="/Logo_Horizontal_FB.JPG"
-              alt="Mighty Tech Solutions LLC"
-              style={{ height: 64, width: "auto", display: "block" }}
-            />
-          </a>
+        .mts-contact-form-card {
+          background: #FFFFFF;
+          border: 1px solid #D4E3F2;
+          border-radius: 22px;
+          padding: 35px;
+          box-shadow: 0 18px 52px rgba(0,35,75,0.09);
+        }
 
-          <nav className="desktop-nav">
-            {[
-              ["Commercial Services", "/#commercial-services"],
-              ["Residential Services", "/#residential-services"],
-              ["Projects", "/#projects"],
-              ["Reviews", "/#reviews"],
-              ["Areas", "/#areas"],
-            ].map(([label, href]) => (
-              <a
-                key={label}
-                href={href}
-                style={{
-                  color: "#475569",
-                  textDecoration: "none",
-                  fontSize: 13,
-                  fontWeight: 650,
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {label}
-              </a>
-            ))}
-          </nav>
+        .mts-contact-form-card h2 {
+          margin: 0 0 8px;
+          font-size: 27px;
+          font-weight: 850;
+          letter-spacing: -0.4px;
+          color: #08264A;
+        }
 
-          <a
-            href={`tel:+1${PHONE}`}
-            style={{
-              background: "#0f172a",
-              color: "#ffffff",
-              padding: "12px 20px",
-              borderRadius: 11,
-              fontSize: 14,
-              fontWeight: 700,
-              textDecoration: "none",
-              whiteSpace: "nowrap",
-            }}
-          >
-            📞 Call Now
-          </a>
+        .mts-contact-form-intro {
+          margin: 0 0 26px;
+          color: #526981;
+          font-size: 14px;
+          line-height: 1.65;
+        }
 
-          <details className="mobile-menu" style={{ position: "relative" }}>
-            <summary
-              aria-label="Open navigation menu"
-              style={{
-                listStyle: "none",
-                width: 44,
-                height: 44,
-                alignItems: "center",
-                justifyContent: "center",
-                background: "#f8fafc",
-                border: "1px solid #e2e8f0",
-                borderRadius: 10,
-                cursor: "pointer",
-                fontSize: 22,
-                display: "flex",
-              }}
-            >
-              ☰
-            </summary>
+        .mts-contact-preset-note {
+          background: #EDF5FD;
+          border: 1px solid #CFE1F3;
+          color: #254D77;
+          border-radius: 12px;
+          padding: 12px 14px;
+          font-size: 13px;
+          line-height: 1.5;
+          margin-bottom: 21px;
+        }
 
-            <div
-              style={{
-                position: "absolute",
-                right: 0,
-                top: 53,
-                minWidth: 245,
-                background: "#ffffff",
-                border: "1px solid #e2e8f0",
-                borderRadius: 14,
-                padding: 16,
-                boxShadow: "0 12px 35px rgba(15,23,42,0.12)",
-              }}
-            >
-              {[
-                ["Commercial Services", "/#commercial-services"],
-                ["Residential Services", "/#residential-services"],
-                ["Projects", "/#projects"],
-                ["Reviews", "/#reviews"],
-                ["Areas", "/#areas"],
-              ].map(([label, href]) => (
-                <a
-                  key={label}
-                  href={href}
-                  style={{
-                    display: "block",
-                    padding: "10px 4px",
-                    color: "#334155",
-                    textDecoration: "none",
-                    fontSize: 14,
-                    fontWeight: 650,
-                  }}
-                >
-                  {label}
-                </a>
-              ))}
+        .mts-contact-form-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 18px 16px;
+        }
 
-              <a
-                href="/contact"
-                style={{
-                  marginTop: 10,
-                  background: "#2563eb",
-                  color: "#ffffff",
-                  padding: "12px 16px",
-                  borderRadius: 10,
-                  textDecoration: "none",
-                  textAlign: "center",
-                  fontWeight: 700,
-                  display: "block",
-                }}
-              >
-                Contact Us
-              </a>
-            </div>
-          </details>
-        </div>
-      </header>
+        .mts-contact-full { grid-column: 1 / -1; }
 
-      <section
-        style={{
-          background:
-            "linear-gradient(135deg, #f8fafc 0%, #eef6ff 55%, #f8fafc 100%)",
-          padding: "78px 24px 84px",
-        }}
-      >
-        <div
-          className="contact-grid"
-          style={{ maxWidth: 1120, margin: "0 auto" }}
-        >
-          <div>
-            <div
-              style={{
-                display: "inline-flex",
-                background: "#dbeafe",
-                color: "#1d4ed8",
-                padding: "7px 14px",
-                borderRadius: 999,
-                fontSize: 13,
-                fontWeight: 750,
-                marginBottom: 20,
-              }}
-            >
-              Contact Mighty Tech Solutions
-            </div>
+        .mts-contact-label {
+          display: block;
+          font-size: 13px;
+          font-weight: 750;
+          color: #294A69;
+          margin-bottom: 8px;
+        }
 
-            <h1
-              className="contact-title"
-              style={{
-                fontSize: 47,
-                lineHeight: 1.08,
-                letterSpacing: "-1.4px",
-                fontWeight: 850,
-                margin: "0 0 20px",
-              }}
-            >
-              Tell us what you need help with
-            </h1>
+        .mts-contact-input {
+          width: 100%;
+          min-width: 0;
+          border: 1px solid #C7D8E8;
+          border-radius: 11px;
+          padding: 13px 14px;
+          font: inherit;
+          font-size: 15px;
+          color: #08264A;
+          background: #FFFFFF;
+          outline: none;
+        }
 
-            <p
-              style={{
-                color: "#475569",
-                fontSize: 17,
-                lineHeight: 1.72,
-                margin: "0 0 28px",
-                maxWidth: 520,
-              }}
-            >
-              Send the details of your project, installation or technology
-              problem. Your message will go directly to Mighty Tech Solutions.
-            </p>
+        .mts-contact-input:focus {
+          border-color: #0866E8;
+          box-shadow: 0 0 0 3px rgba(8,102,232,0.12);
+        }
 
-            <div
-              style={{
-                display: "grid",
-                gap: 14,
-                maxWidth: 480,
-              }}
-            >
-              <div
-                style={{
-                  border: "1px solid #dbeafe",
-                  background: "#ffffff",
-                  borderRadius: 15,
-                  padding: 20,
-                }}
-              >
-                <div style={{ fontWeight: 800, marginBottom: 6 }}>Prefer to call?</div>
-                <a
-                  href={`tel:+1${PHONE}`}
-                  style={{
-                    color: "#2563eb",
-                    textDecoration: "none",
-                    fontWeight: 750,
-                  }}
-                >
-                  (689) 272-8874
-                </a>
-              </div>
+        .mts-contact-input::placeholder { color: #7A90A7; }
 
-              <div
-                style={{
-                  border: "1px solid #e2e8f0",
-                  background: "#ffffff",
-                  borderRadius: 15,
-                  padding: 20,
-                }}
-              >
-                <div style={{ fontWeight: 800, marginBottom: 6 }}>
-                  Commercial + Residential
+        .mts-contact-submit {
+          width: 100%;
+          border: 1px solid #011535;
+          border-radius: 11px;
+          background: #011535;
+          color: #FFFFFF;
+          padding: 15px 22px;
+          font: inherit;
+          font-size: 15px;
+          font-weight: 800;
+          cursor: pointer;
+          transition: background-color 0.18s ease, transform 0.18s ease;
+        }
+
+        .mts-contact-submit:hover:not(:disabled) {
+          background: #103765;
+          transform: translateY(-1px);
+        }
+
+        .mts-contact-submit:disabled { opacity: 0.60; cursor: not-allowed; }
+
+        .mts-contact-submit:focus-visible,
+        .mts-contact-phone:focus-visible {
+          outline: 3px solid #60A5FA;
+          outline-offset: 4px;
+        }
+
+        .mts-contact-alert {
+          margin-top: 19px;
+          padding: 15px 16px;
+          border-radius: 12px;
+          font-size: 14px;
+          line-height: 1.55;
+          font-weight: 650;
+        }
+
+        .mts-contact-alert--success {
+          background: #ECFDF5;
+          border: 1px solid #A7F3D0;
+          color: #166534;
+        }
+
+        .mts-contact-alert--error {
+          background: #FEF2F2;
+          border: 1px solid #FECACA;
+          color: #991B1B;
+        }
+
+        .mts-contact-footer {
+          background: #071E39;
+          border-top: 1px solid #1A4775;
+          padding: 30px 24px;
+          text-align: center;
+          color: #D3E5F7;
+          font-size: 13px;
+          line-height: 1.6;
+        }
+        .mts-contact-footer a { color: #D3E5F7; text-decoration: none; }
+        .mts-contact-footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 900px) {
+          .mts-contact-grid { grid-template-columns: 1fr; gap: 38px; }
+          .mts-contact-section { padding: 65px 22px 75px; }
+          .mts-contact-info { grid-template-columns: 1fr 1fr; max-width: none; }
+        }
+
+        @media (max-width: 600px) {
+          .mts-contact-section { padding: 52px 20px 65px; }
+          .mts-contact-form-card { padding: 25px 20px; }
+          .mts-contact-form-grid { grid-template-columns: 1fr; }
+          .mts-contact-full { grid-column: auto; }
+          .mts-contact-info { grid-template-columns: 1fr; }
+          .mts-contact-info-box { padding: 20px; }
+          .mts-contact-phone { font-size: 21px; }
+        }
+      `}</style>
+
+      <SiteHeader phoneHref={`tel:+1${PHONE}`} />
+
+      <main>
+        <section className="mts-contact-section" aria-labelledby="contact-heading">
+          <div className="mts-contact-grid">
+            <div>
+              <div className="mts-contact-kicker">Contact Mighty Tech Solutions</div>
+              <h1 className="mts-contact-title" id="contact-heading">
+                Tell us what you need help with
+              </h1>
+              <p className="mts-contact-lead">
+                Whether your business needs ongoing IT support or you are
+                improving technology at home, tell us about your project,
+                installation or technical issue. Your request goes directly to
+                Mighty Tech Solutions.
+              </p>
+
+              <div className="mts-contact-info">
+                <div className="mts-contact-info-box mts-contact-info-box--dark">
+                  <div className="mts-contact-info-label">Prefer to call?</div>
+                  <a className="mts-contact-phone" href={`tel:+1${PHONE}`}>
+                    (689) 272-8874
+                  </a>
+                  <p className="mts-contact-info-copy">
+                    Speak with us directly about your service request.
+                  </p>
                 </div>
-                <div style={{ color: "#64748b", fontSize: 14, lineHeight: 1.6 }}>
-                  Networking, WiFi, structured cabling, security cameras,
-                  small-business IT support, AV and residential technology.
+
+                <div className="mts-contact-info-box">
+                  <div className="mts-contact-info-label">Serving Central Florida</div>
+                  <p className="mts-contact-info-copy">
+                    Business technology and residential technology services,
+                    including networks, IT support, security technology, smart
+                    home systems and AV installations.
+                  </p>
                 </div>
               </div>
+            </div>
+
+            <div className="mts-contact-form-card">
+              <h2>Request Service</h2>
+              <p className="mts-contact-form-intro">
+                Complete the form below and we&apos;ll receive your request by email.
+              </p>
+
+              {requestedService && form.service === requestedService && (
+                <div className="mts-contact-preset-note" role="status">
+                  Service selected from your request: <strong>{requestedService}</strong>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit}>
+                <div className="mts-contact-form-grid">
+                  <div>
+                    <label className="mts-contact-label" htmlFor="name">Name *</label>
+                    <input
+                      id="name"
+                      className="mts-contact-input"
+                      type="text"
+                      autoComplete="name"
+                      maxLength={100}
+                      value={form.name}
+                      onChange={(event) => updateField("name", event.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="mts-contact-label" htmlFor="email">Email *</label>
+                    <input
+                      id="email"
+                      className="mts-contact-input"
+                      type="email"
+                      autoComplete="email"
+                      maxLength={150}
+                      value={form.email}
+                      onChange={(event) => updateField("email", event.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="mts-contact-label" htmlFor="phone">Phone *</label>
+                    <input
+                      id="phone"
+                      className="mts-contact-input"
+                      type="tel"
+                      autoComplete="tel"
+                      maxLength={40}
+                      value={form.phone}
+                      onChange={(event) => updateField("phone", event.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="mts-contact-label" htmlFor="city">City</label>
+                    <input
+                      id="city"
+                      className="mts-contact-input"
+                      type="text"
+                      autoComplete="address-level2"
+                      maxLength={100}
+                      value={form.city}
+                      onChange={(event) => updateField("city", event.target.value)}
+                    />
+                  </div>
+
+                  <div className="mts-contact-full">
+                    <label className="mts-contact-label" htmlFor="service">
+                      Service Needed *
+                    </label>
+                    <select
+                      id="service"
+                      className="mts-contact-input"
+                      value={form.service}
+                      onChange={(event) => updateField("service", event.target.value)}
+                      required
+                    >
+                      <option value="" disabled>Select a service</option>
+                      <optgroup label="For Business">
+                        {BUSINESS_SERVICES.map((service) => (
+                          <option key={service} value={service}>{service}</option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="For Home">
+                        {HOME_SERVICES.map((service) => (
+                          <option key={service} value={service}>{service}</option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="General Requests">
+                        {GENERAL_SERVICES.map((service) => (
+                          <option key={service} value={service}>{service}</option>
+                        ))}
+                      </optgroup>
+                      <option value="Other">Other / Not sure</option>
+                    </select>
+                  </div>
+
+                  <div className="mts-contact-full">
+                    <label className="mts-contact-label" htmlFor="message">Message *</label>
+                    <textarea
+                      id="message"
+                      className="mts-contact-input"
+                      rows={7}
+                      maxLength={3000}
+                      value={form.message}
+                      onChange={(event) => updateField("message", event.target.value)}
+                      placeholder="Tell us what you need installed, improved or troubleshot."
+                      required
+                      style={{ resize: "vertical" }}
+                    />
+                  </div>
+
+                  {/* Retain the hidden honeypot field expected by the existing endpoint. */}
+                  <div
+                    aria-hidden="true"
+                    style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}
+                  >
+                    <label htmlFor="website">Website</label>
+                    <input
+                      id="website"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={form.website}
+                      onChange={(event) => updateField("website", event.target.value)}
+                    />
+                  </div>
+
+                  <div className="mts-contact-full">
+                    <button
+                      className="mts-contact-submit"
+                      type="submit"
+                      disabled={status === "sending"}
+                    >
+                      {status === "sending" ? "Sending..." : "Send Message"}
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              {status === "sent" && (
+                <div className="mts-contact-alert mts-contact-alert--success" role="status">
+                  Thank you. Your message has been sent to Mighty Tech Solutions.
+                  We&apos;ll review your request and get back to you.
+                </div>
+              )}
+
+              {status === "error" && (
+                <div className="mts-contact-alert mts-contact-alert--error" role="alert">
+                  {errorMessage}
+                </div>
+              )}
             </div>
           </div>
+        </section>
+      </main>
 
-          <div
-            style={{
-              background: "#ffffff",
-              border: "1px solid #dbeafe",
-              borderRadius: 20,
-              padding: 28,
-              boxShadow: "0 14px 45px rgba(15,23,42,0.08)",
-            }}
-          >
-            <h2
-              style={{
-                fontSize: 25,
-                fontWeight: 850,
-                margin: "0 0 7px",
-              }}
-            >
-              Request Service
-            </h2>
-
-            <p
-              style={{
-                color: "#64748b",
-                fontSize: 14,
-                lineHeight: 1.65,
-                margin: "0 0 24px",
-              }}
-            >
-              Complete the form below and we&apos;ll receive your request by
-              email.
-            </p>
-
-            <form onSubmit={handleSubmit}>
-              <div className="form-grid">
-                <div>
-                  <label className="field-label" htmlFor="name">
-                    Name *
-                  </label>
-                  <input
-                    id="name"
-                    className="field-input"
-                    type="text"
-                    autoComplete="name"
-                    maxLength={100}
-                    value={form.name}
-                    onChange={(e) => updateField("name", e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="field-label" htmlFor="email">
-                    Email *
-                  </label>
-                  <input
-                    id="email"
-                    className="field-input"
-                    type="email"
-                    autoComplete="email"
-                    maxLength={150}
-                    value={form.email}
-                    onChange={(e) => updateField("email", e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="field-label" htmlFor="phone">
-                    Phone *
-                  </label>
-                  <input
-                    id="phone"
-                    className="field-input"
-                    type="tel"
-                    autoComplete="tel"
-                    maxLength={40}
-                    value={form.phone}
-                    onChange={(e) => updateField("phone", e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="field-label" htmlFor="city">
-                    City
-                  </label>
-                  <input
-                    id="city"
-                    className="field-input"
-                    type="text"
-                    autoComplete="address-level2"
-                    maxLength={100}
-                    value={form.city}
-                    onChange={(e) => updateField("city", e.target.value)}
-                  />
-                </div>
-
-                <div className="full-width">
-                  <label className="field-label" htmlFor="service">
-                    Service Needed *
-                  </label>
-                  <select
-                    id="service"
-                    className="field-input"
-                    value={form.service}
-                    onChange={(e) => updateField("service", e.target.value)}
-                    required
-                  >
-                    <option value="" disabled>
-                      Select a service
-                    </option>
-                    {SERVICES.map((service) => (
-                      <option key={service} value={service}>
-                        {service}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="full-width">
-                  <label className="field-label" htmlFor="message">
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    className="field-input"
-                    rows={7}
-                    maxLength={3000}
-                    value={form.message}
-                    onChange={(e) => updateField("message", e.target.value)}
-                    placeholder="Tell us what you need installed, repaired, configured or troubleshot."
-                    required
-                    style={{ resize: "vertical" }}
-                  />
-                </div>
-
-                <div
-                  aria-hidden="true"
-                  style={{
-                    position: "absolute",
-                    left: "-10000px",
-                    width: 1,
-                    height: 1,
-                    overflow: "hidden",
-                  }}
-                >
-                  <label htmlFor="website">Website</label>
-                  <input
-                    id="website"
-                    type="text"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    value={form.website}
-                    onChange={(e) => updateField("website", e.target.value)}
-                  />
-                </div>
-
-                <div className="full-width">
-                  <button
-                    type="submit"
-                    disabled={status === "sending"}
-                    style={{
-                      width: "100%",
-                      border: 0,
-                      background:
-                        status === "sending" ? "#64748b" : "#2563eb",
-                      color: "#ffffff",
-                      borderRadius: 12,
-                      padding: "15px 20px",
-                      fontSize: 15,
-                      fontWeight: 800,
-                      cursor:
-                        status === "sending" ? "not-allowed" : "pointer",
-                    }}
-                  >
-                    {status === "sending" ? "Sending..." : "Send Message"}
-                  </button>
-                </div>
-              </div>
-            </form>
-
-            {status === "sent" && (
-              <div
-                role="status"
-                style={{
-                  marginTop: 18,
-                  background: "#ecfdf5",
-                  border: "1px solid #a7f3d0",
-                  color: "#166534",
-                  borderRadius: 12,
-                  padding: "14px 16px",
-                  fontSize: 14,
-                  lineHeight: 1.55,
-                  fontWeight: 650,
-                }}
-              >
-                Thank you. Your message has been sent to Mighty Tech Solutions.
-                We&apos;ll review your request and get back to you.
-              </div>
-            )}
-
-            {status === "error" && (
-              <div
-                role="alert"
-                style={{
-                  marginTop: 18,
-                  background: "#fef2f2",
-                  border: "1px solid #fecaca",
-                  color: "#991b1b",
-                  borderRadius: 12,
-                  padding: "14px 16px",
-                  fontSize: 14,
-                  lineHeight: 1.55,
-                  fontWeight: 650,
-                }}
-              >
-                {errorMessage}
-              </div>
-            )}
-          </div>
+      <footer className="mts-contact-footer">
+        © 2026 Mighty Tech Solutions LLC · Business &amp; Residential Technology · Central Florida
+        <div style={{ marginTop: 8 }}>
+          <a href={`tel:+1${PHONE}`}>(689) 272-8874</a>
+          {" · "}
+          <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
         </div>
-      </section>
-
-      <footer
-        style={{
-          background: "#f8fafc",
-          borderTop: "1px solid #e2e8f0",
-          padding: "29px 24px",
-          textAlign: "center",
-          color: "#94a3b8",
-          fontSize: 13,
-        }}
-      >
-        © 2026 Mighty Tech Solutions LLC · Commercial & Residential Technology
-        Services · Central Florida
       </footer>
-    </main>
+    </div>
   );
 }
